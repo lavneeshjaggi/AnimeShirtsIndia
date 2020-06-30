@@ -7,7 +7,7 @@ connectDB();
 
 app.use(express.json({ extended: false }));
 
-app.get('/', (req, res) => {
+app.get('/', function(req, res) {
     res.send('Hello World!');
 });
 
@@ -17,8 +17,9 @@ app.use('/shop', require('./routes/shop'));
 app.use('/signin', require('./routes/sign-in-and-sign-up'));
 app.use('/register', require('./routes/user-registeration'));
 
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-    console.log('Server Started!')
-});
+app.listen(port, error => {
+    if (error) throw error;
+    console.group('Server running on port ' + port);
+}); 
