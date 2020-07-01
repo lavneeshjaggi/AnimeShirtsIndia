@@ -1,8 +1,9 @@
 const express = require('express'),
-      router  = express.Router();
+      router  = express.Router(),
+      passport = require('passport');
 
 router.get('/', function(req, res) {
-    res.send('Sign In And Sign Up Route');
+    res.send('Sign In Route');
 });
 
 module.exports = router;
