@@ -11,7 +11,7 @@ const app = express();
 const connectDB = require('./config/db'),
       User      = require('./models/user');    
 
-connectDB();
+connectDB();0
 
 app.use(express.json({ extended: false }));
 app.use(session({
@@ -33,8 +33,9 @@ app.get('/', function(req, res) {
 app.use('/checkout', require('./routes/checkout'));
 app.use('/contact', require('./routes/contact'));
 app.use('/shop', require('./routes/shop'));
-app.use('/login', require('./routes/sign-in'));
-app.use('/register', require('./routes/sign-up'));
+app.use('/login', require('./routes/sign-in-sign-up-sign-out/sign-in'));
+app.use('/register', require('./routes/sign-in-sign-up-sign-out/sign-up'));
+app.use('/logout', require('./routes/sign-in-sign-up-sign-out/sign-out'));
 
 const port = process.env.PORT || 5000;
 

@@ -1,7 +1,11 @@
-const express = require('express'),
-      router  = express.Router();
+const express = require('express');
+      passport = require('passport');
 
-router.get('/', function(req, res) {
+const router = express.Router();
+
+const isLoggedIn = require('../middlewares/check-logged-in');
+
+router.get('/', isLoggedIn, function(req, res) {
     res.send('Checkout Route');
 });
 
