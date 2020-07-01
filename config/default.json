@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://LavneeshJaggi:sherlock@cluster0-rzdjg.mongodb.net/<dbname>?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://LavneeshJaggi:sherlock@cluster0-rzdjg.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "secretToken": "my_secret_token"
 }
