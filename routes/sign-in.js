@@ -1,9 +1,19 @@
-const express = require('express'),
-      router  = express.Router(),
+const express  = require('express'),
       passport = require('passport');
 
-router.get('/', function(req, res) {
-    res.send('Sign In Route');
+const router = express.Router();
+
+router.post(
+    '/', 
+    passport.authenticate(
+        'local',
+        {
+            successRedirect: '/checkout',
+            failureRedirect: '/',
+            failureMessage: true
+        } 
+    ), 
+    function(req, res) { 
 });
 
 module.exports = router;

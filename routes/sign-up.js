@@ -10,12 +10,15 @@ router.post('/', function(req, res) {
 
     User.register(new User({
         username: email,
+        email: email
     }), password, function(error, user) {
         if (error) {
             console.log(error.message);
 
             return res.status(500).json({ msg: "Server Error"});
         }
+
+        console.log(user);
 
         passport.authenticate('local')(req, res, function() {
             res.send('Registeration Complete');

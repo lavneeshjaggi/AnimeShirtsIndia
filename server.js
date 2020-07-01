@@ -22,6 +22,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
@@ -32,7 +33,7 @@ app.get('/', function(req, res) {
 app.use('/checkout', require('./routes/checkout'));
 app.use('/contact', require('./routes/contact'));
 app.use('/shop', require('./routes/shop'));
-app.use('/signin', require('./routes/sign-in'));
+app.use('/login', require('./routes/sign-in'));
 app.use('/register', require('./routes/sign-up'));
 
 const port = process.env.PORT || 5000;
