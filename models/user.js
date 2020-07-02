@@ -17,7 +17,8 @@ const UserSchema = new mongoose.Schema({
     },
     cart: [
         {
-            type: String
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Collection'
         }
     ],
     createdOn: {
