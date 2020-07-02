@@ -34,15 +34,16 @@ const CollectionSchema = new mongoose.Schema({
                         {
                             user: {
                                 type: mongoose.Schema.Types.ObjectId,
-                                ref: 'User'
+                                ref: 'Users'
                             },
                             content: {
                                 type: String
                             },
                             likes: [
                                 {
-                                    like: {
-                                        type: Number
+                                    user: {
+                                        type: mongoose.Schema.Types.ObjectId,
+                                        ref: 'Users'
                                     }
                                 }
                             ],
