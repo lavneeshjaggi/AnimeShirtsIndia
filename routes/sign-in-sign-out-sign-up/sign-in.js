@@ -10,7 +10,7 @@ router.post(
         {
             successRedirect: '/checkout',
             failureRedirect: '/',
-            failureMessage: true
+            failureFlash: true
         } 
     ), 
     function(req, res) { 

@@ -33,9 +33,9 @@ app.get('/', function(req, res) {
 app.use('/checkout', require('./routes/checkout'));
 app.use('/contact', require('./routes/contact'));
 app.use('/shop', require('./routes/shop'));
-app.use('/login', require('./routes/sign-in-sign-up-sign-out/sign-in'));
-app.use('/register', require('./routes/sign-in-sign-up-sign-out/sign-up'));
-app.use('/logout', require('./routes/sign-in-sign-up-sign-out/sign-out'));
+app.use('/login', require('./routes/sign-in-sign-out-sign-up/sign-in'));
+app.use('/register', require('./routes/sign-in-sign-out-sign-up/sign-up'));
+app.use('/logout', require('./routes/sign-in-sign-out-sign-up/sign-out'));
 
 const port = process.env.PORT || 5000;
 
