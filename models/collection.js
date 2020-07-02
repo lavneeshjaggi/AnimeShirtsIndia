@@ -14,6 +14,9 @@ const CollectionSchema = new mongoose.Schema({
                     imageUrl: {
                         type: String
                     },
+                    description: {
+                        type: String
+                    },
                     sizes: [
                         {
                             size: {
