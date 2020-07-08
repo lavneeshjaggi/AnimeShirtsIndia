@@ -1,0 +1,8 @@
+* {
+    background: #232526; 
+    background: -webkit-linear-gradient(to left, #414345, #232526);  
+    background: linear-gradient(to left, #414345, #232526); 
+    color: #eee;
+    margin: 0;
+    padding: 0;
+}
