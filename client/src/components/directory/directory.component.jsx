@@ -28,13 +28,13 @@ class Directory extends React.Component {
                 {
                     id: 4,
                     title: 'mens',
-                    imageUrl: 'https://images.unsplash.com/photo-1512353087810-25dfcd100962?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
+                    imageUrl: 'https://images.unsplash.com/photo-1484515991647-c5760fcecfc7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=387&q=80',
                     size: 'large'
                 },
                 {
                     id: 5,
                     title: 'womens',
-                    imageUrl: 'https://images.unsplash.com/photo-1535914253584-25160fb61079?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80',
+                    imageUrl: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80',
                     size: 'large'
                 }
             ]
