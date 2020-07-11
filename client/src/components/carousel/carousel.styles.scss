@@ -1,0 +1,23 @@
+@import "../../../node_modules/@glidejs/glide/src/assets/sass/glide.core";
+@import "../../../node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+
+.carousel {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+
+    & .glide {
+        border: 1px solid #f5D020;
+        height: 90vh;
+        width: 200vh;
+        overflow: hidden;
+
+        & .image {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 90vh;
+            width: 200vh;
+        }
+    }
+}
