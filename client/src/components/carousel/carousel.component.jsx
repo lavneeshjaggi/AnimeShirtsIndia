@@ -5,27 +5,27 @@ import './carousel.styles.scss';
 var images = [
     {
         id: 1,
-        imageUrl: 'https://negativespace.co/wp-content/uploads/2020/06/negative-space-bed-fashion-outfit-style-1062x708.jpg',
+        imageUrl: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
     },
     {
         id: 2,
-        imageUrl: 'https://negativespace.co/wp-content/uploads/2020/03/negative-space-clothing-bed-style-flat-1062x708.jpg',
+        imageUrl: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
     },
     {
         id: 3,
-        imageUrl: 'https://negativespace.co/wp-content/uploads/2019/11/negative-space-cosmetics-and-stationery-for-the-holiday-1062x708.jpg',
+        imageUrl: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
     },
     {
         id: 4,
-        imageUrl: 'https://negativespace.co/wp-content/uploads/2018/01/negative-space-fashion-books-magazine-vogue-daria-shevtsova-thumb-1.jpg',
+        imageUrl: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
     },
     {
         id: 5,
-        imageUrl: 'https://negativespace.co/wp-content/uploads/2017/10/negative-space-women-dressing-room-fashion-model-makeup-mirror-bags-flaunter-thumb-1.jpg',
+        imageUrl: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
     },
     {
         id: 6,
-        imageUrl: 'https://negativespace.co/wp-content/uploads/2017/10/fashion-travel-accessories-sunglasses-bag-camera-watch-freephotoscc-thumb-1.jpg',
+        imageUrl: 'https://images.unsplash.com/photo-1537832816519-689ad163238b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
     }
 ];
 
