@@ -4,6 +4,9 @@ const CollectionSchema = new mongoose.Schema({
     title: {
         type: String
     },
+    routeName: {
+        type: String
+    },
     items: [
         {
             title: {
