@@ -6,10 +6,9 @@ import './App.css';
 
 import Homepage from './pages/homepage/homepage.component';
 
-const HatsPage = () => (
+const JacketsPage = () => (
   <div>
-    <h1>Hats Page</h1>
-    <h1>T-SHIRTS</h1>
+    <h1>Jackets Page</h1>
   </div>
 )
 
@@ -18,7 +17,7 @@ const App = () => {
     <div>
       <Switch>
         <Route exact path='/' component={Homepage} />
-        <Route path='/hats' component={HatsPage} />
+        <Route path='/jackets' component={JacketsPage} />
       </Switch>
     </div>
   );

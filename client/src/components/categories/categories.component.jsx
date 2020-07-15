@@ -1,9 +1,13 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom'
 
 import './categories.styles.scss';
 
-const Categories = ({ title, imageUrl, size }) => (
-    <div className={`${size} categories`}>
+const Categories = ({ title, imageUrl, size, history, match, linkUrl }) => (
+    <div 
+        className={`${size} categories`} 
+        onClick={() => history.push(`${match.url}${linkUrl}`)}
+    >
         <div 
             className='background-image'
             style={{
@@ -17,4 +21,4 @@ const Categories = ({ title, imageUrl, size }) => (
     </div>
 );
 
-export default Categories;
+export default withRouter(Categories);
