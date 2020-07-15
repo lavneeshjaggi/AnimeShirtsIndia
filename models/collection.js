@@ -9,7 +9,7 @@ const CollectionSchema = new mongoose.Schema({
     },
     items: [
         {
-            title: {
+            name: {
                 type: String
             },
             imageUrl: {
