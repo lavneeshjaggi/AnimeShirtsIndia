@@ -9,7 +9,7 @@ class Directory extends React.Component {
         super();
 
         this.state = {
-            collections: [
+            sections: [
                 {
                     id: 1,
                     title: 'jackets',
@@ -50,13 +50,13 @@ class Directory extends React.Component {
         return (
             <div className='directory'>
                 {
-                    this.state.collections.map(({ id, ...otherCollectionProps }) => (
+                    this.state.sections.map(({ id, ...otherCollectionProps }) => (
                         <Categories key={id} {...otherCollectionProps} />
                     ))
                 }
             </div>   
         )
     }
-}
+};
 
 export default Directory;
