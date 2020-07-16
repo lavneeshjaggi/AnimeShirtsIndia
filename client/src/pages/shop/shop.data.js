@@ -6,13 +6,13 @@ const SHOP_DATA = [
     items: [
       {
         id: 1,
-        title: 'Danger Red and Yellow',
+        title: 'Dynamic Red and Yellow',
         imageUrl: 'https://images.unsplash.com/photo-1542482378-4e3530c8e525?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 25
       },
       {
         id: 2,
-        title: 'Rainy Leather',
+        title: 'Rainy Black',
         imageUrl: 'https://images.unsplash.com/photo-1509539662397-116cb90542f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 18
       },
