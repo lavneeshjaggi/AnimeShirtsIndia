@@ -59,7 +59,7 @@ const Carousel = () => {
                         style={{
                             backgroundImage: `url(${imageUrl})`
                         }} 
-                    />,
+                    />
                     <div className='msg'>
                         <h1 className='title'>{msg.toUpperCase()}</h1>
                         <h2 className='subtitle'>SHOP NOW</h2>
