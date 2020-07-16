@@ -1,5 +1,4 @@
 * {
-    color: #eee;
     font-family: 'Lato';
     margin: 0;
 }
@@ -8,5 +7,6 @@ body {
     background: #232526; 
     background: -webkit-linear-gradient(to left, #414345, #232526);  
     background: linear-gradient(to left, #414345, #232526); 
+    color: #F5D020; 
     padding: 20px 60px;
 }
