@@ -59,6 +59,10 @@
             padding: 0 24px;
             position: absolute;
 
+            &:hover {
+                opacity: 1;
+            }
+
             .title {
                 color: #f5D020;
                 font-size: 22px;
