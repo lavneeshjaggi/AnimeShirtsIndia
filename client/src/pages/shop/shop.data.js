@@ -116,8 +116,8 @@ const SHOP_DATA = [
     items: [
       {
         id: 17,
-        title: 'Black Jean Shearling',
-        imageUrl: 'https://i.ibb.co/XzcwL5s/black-shearling.png',
+        title: 'Flower Purse',
+        imageUrl: 'https://images.unsplash.com/photo-1564139615082-01535600057f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 125
       },
       {
@@ -128,8 +128,8 @@ const SHOP_DATA = [
       },
       {
         id: 19,
-        title: 'Grey Jean Jacket',
-        imageUrl: 'https://i.ibb.co/N71k1ML/grey-jean-jacket.png',
+        title: 'Moriarty Bag',
+        imageUrl: 'https://images.unsplash.com/photo-1546938576-04917ec516ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80',
         price: 90
       },
       {
