@@ -56,43 +56,43 @@ const SHOP_DATA = [
   },
   {
     id: 2,
-    title: 'Sneakers',
-    routetitle: 'sneakers',
+    title: 'Art Work',
+    routetitle: 'artwork',
     items: [
       {
         id: 9,
-        title: 'Adidas NMD',
-        imageUrl: 'https://i.ibb.co/0s3pdnc/adidas-nmd.png',
+        title: 'Michael Angelo',
+        imageUrl: 'https://images.unsplash.com/flagged/photo-1572392640988-ba48d1a74457?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
         price: 220
       },
       {
         id: 10,
-        title: 'Adidas Yeezy',
-        imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
+        title: 'Illuminati',
+        imageUrl: 'https://images.unsplash.com/photo-1523554888454-84137e72c3ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 280
       },
       {
         id: 11,
-        title: 'Black Converse',
-        imageUrl: 'https://i.ibb.co/bPmVXyP/black-converse.png',
+        title: 'Pencil Shading',
+        imageUrl: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 110
       },
       {
         id: 12,
-        title: 'Nike White AirForce',
-        imageUrl: 'https://i.ibb.co/1RcFPk0/white-nike-high-tops.png',
+        title: 'Human Chain',
+        imageUrl: 'https://images.unsplash.com/photo-1551913902-c92207136625?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 160
       },
       {
         id: 13,
-        title: 'Nike Red High Tops',
-        imageUrl: 'https://i.ibb.co/QcvzydB/nikes-red.png',
+        title: 'Perspective Playground',
+        imageUrl: 'https://images.unsplash.com/photo-1554188248-986adbb73be4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 160
       },
       {
         id: 14,
-        title: 'Nike Brown High Tops',
-        imageUrl: 'https://i.ibb.co/fMTV342/nike-brown.png',
+        title: 'Space on Crack',
+        imageUrl: 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 160
       },
       {
@@ -103,16 +103,16 @@ const SHOP_DATA = [
       },
       {
         id: 16,
-        title: 'Timberlands',
-        imageUrl: 'https://i.ibb.co/Mhh6wBg/timberlands.png',
+        title: 'Not A Pineapple',
+        imageUrl: 'https://images.unsplash.com/photo-1494252713559-f26b4bf0b174?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 200
       }
     ]
   },
   {
     id: 3,
-    title: 'Jackets',
-    routetitle: 'jackets',
+    title: 'Accessories',
+    routetitle: 'accessories',
     items: [
       {
         id: 17,
@@ -122,8 +122,8 @@ const SHOP_DATA = [
       },
       {
         id: 18,
-        title: 'Blue Jean Jacket',
-        imageUrl: 'https://i.ibb.co/mJS6vz0/blue-jean-jacket.png',
+        title: 'Chanel',
+        imageUrl: 'https://images.unsplash.com/photo-1537832816519-689ad163238b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 90
       },
       {
@@ -134,142 +134,142 @@ const SHOP_DATA = [
       },
       {
         id: 20,
-        title: 'Brown Shearling',
-        imageUrl: 'https://i.ibb.co/s96FpdP/brown-shearling.png',
+        title: 'Infinite Purse',
+        imageUrl: 'https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 165
       },
       {
         id: 21,
-        title: 'Tan Trench',
-        imageUrl: 'https://i.ibb.co/M6hHc3F/brown-trench.png',
+        title: 'Jewellery',
+        imageUrl: 'https://images.unsplash.com/photo-1519431458145-1ca3d5ccd68e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 185
       },
       {
         id: 22,
-        title: 'Tan Trench',
-        imageUrl: 'https://i.ibb.co/M6hHc3F/brown-trench.png',
+        title: 'Lipstick and Purse',
+        imageUrl: 'https://images.unsplash.com/photo-1535556261192-f718879e7f2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 185
       },
       {
         id: 23,
-        title: 'Tan Trench',
-        imageUrl: 'https://i.ibb.co/M6hHc3F/brown-trench.png',
+        title: 'Red Purse',
+        imageUrl: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 185
       },
       {
         id: 24,
-        title: 'Tan Trench',
-        imageUrl: 'https://i.ibb.co/M6hHc3F/brown-trench.png',
+        title: 'Paper Bag',
+        imageUrl: 'https://images.unsplash.com/photo-1574365569389-a10d488ca3fb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 185
       }
     ]
   },
   {
     id: 4,
-    title: 'Womens',
-    routetitle: 'womens',
+    title: 'T-Shirts',
+    routetitle: 'tshirts',
     items: [
       {
         id: 25,
-        title: 'Blue Tanktop',
-        imageUrl: 'https://i.ibb.co/7CQVJNm/blue-tank.png',
+        title: 'Interracial',
+        imageUrl: 'https://images.unsplash.com/photo-1506274512-56255c252865?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 25
       },
       {
         id: 26,
-        title: 'Floral Blouse',
-        imageUrl: 'https://i.ibb.co/4W2DGKm/floral-blouse.png',
+        title: 'Black Wind',
+        imageUrl: 'https://images.unsplash.com/photo-1582259161965-663b6e55dfff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 20
       },
       {
         id: 27,
-        title: 'Floral Dress',
-        imageUrl: 'https://i.ibb.co/KV18Ysr/floral-skirt.png',
+        title: 'Plain White',
+        imageUrl: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 80
       },
       {
         id: 28,
-        title: 'Red Dots Dress',
-        imageUrl: 'https://i.ibb.co/N3BN1bh/red-polka-dot-dress.png',
+        title: 'Forever Reckless',
+        imageUrl: 'https://images.unsplash.com/photo-1568641470259-3a3253bf8739?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 80
       },
       {
         id: 29,
-        title: 'Striped Sweater',
-        imageUrl: 'https://i.ibb.co/KmSkMbH/striped-sweater.png',
+        title: 'Leave The Road',
+        imageUrl: 'https://images.unsplash.com/photo-1554568218-0f1715e72254?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 45
       },
       {
         id: 30,
-        title: 'Yellow Track Suit',
-        imageUrl: 'https://i.ibb.co/v1cvwNf/yellow-track-suit.png',
+        title: 'Champion',
+        imageUrl: 'https://images.unsplash.com/photo-1584678898939-33b688db30b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=327&q=80',
         price: 135
       },
       {
         id: 31,
-        title: 'White Blouse',
-        imageUrl: 'https://i.ibb.co/qBcrsJg/white-vest.png',
+        title: 'Wiz Khalifa Thrasher',
+        imageUrl: 'https://images.unsplash.com/photo-1569130460303-7995e469b7c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 20
       },
       {
         id: 32,
-        title: 'White Blouse',
-        imageUrl: 'https://i.ibb.co/qBcrsJg/white-vest.png',
+        title: 'Bayern Munich',
+        imageUrl: 'https://images.unsplash.com/photo-1554703869-8bb432598cf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 20
       }
     ]
   },
   {
     id: 5,
-    title: 'Mens',
-    routetitle: 'mens',
+    title: 'Hoodies',
+    routetitle: 'hoodies',
     items: [
       {
         id: 33,
-        title: 'Camo Down Vest',
-        imageUrl: 'https://i.ibb.co/xJS0T3Y/camo-vest.png',
+        title: 'Parkour White',
+        imageUrl: 'https://images.unsplash.com/photo-1487528001669-63c47a53fd39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 325
       },
       {
         id: 34,
-        title: 'Floral T-shirt',
-        imageUrl: 'https://i.ibb.co/qMQ75QZ/floral-shirt.png',
+        title: 'Rebel Musician',
+        imageUrl: 'https://images.unsplash.com/photo-1485102068545-7286b0d199d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 20
       },
       {
         id: 35,
-        title: 'Black & White Longsleeve',
-        imageUrl: 'https://i.ibb.co/55z32tw/long-sleeve.png',
+        title: 'Millenial Black and Gray',
+        imageUrl: 'https://images.unsplash.com/photo-1593655364090-9ff8334de627?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 25
       },
       {
         id: 36,
-        title: 'Pink T-shirt',
-        imageUrl: 'https://i.ibb.co/RvwnBL8/pink-shirt.png',
+        title: 'kaleidoscope Black',
+        imageUrl: 'https://images.unsplash.com/photo-1520115623698-7a16e69f4864?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 25
       },
       {
         id: 37,
-        title: 'Jean Long Sleeve',
-        imageUrl: 'https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png',
+        title: 'Smoky Orange',
+        imageUrl: 'https://images.unsplash.com/photo-1509942774463-acf339cf87d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 40
       },
       {
         id: 38,
-        title: 'Jean Long Sleeve',
-        imageUrl: 'https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png',
+        title: 'Depressed Green',
+        imageUrl: 'https://images.unsplash.com/photo-1518042349813-f0bdac4ab129?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 40
       },
       {
         id: 39,
-        title: 'Jean Long Sleeve',
-        imageUrl: 'https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png',
+        title: 'Vanilla White',
+        imageUrl: 'https://images.unsplash.com/photo-1526476148966-98bd039463ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 40
       },
       {
         id: 40,
-        title: 'Jean Long Sleeve',
-        imageUrl: 'https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png',
+        title: 'Joyfull Gray',
+        imageUrl: 'https://images.unsplash.com/photo-1506135385820-d15107bf8e1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 40
       }
     ]
