@@ -10,3 +10,8 @@ body {
     color: #F5D020; 
     padding: 20px 60px;
 }
+
+a {
+    color: #F5D020;
+    text-decoration: none;
+}
