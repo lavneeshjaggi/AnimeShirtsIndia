@@ -21,8 +21,10 @@ class LogUp extends React.Component {
         event.preventDefault();
 
         this.setState({
+            name: '',
             email: '',
-            password: ''
+            password: '',
+            confirmPassword: ''
         })
     };
 
@@ -42,7 +44,7 @@ class LogUp extends React.Component {
                     <FormInput 
                         name='name' 
                         type='text'
-                        label='name'
+                        label='Name'
                         handleChange={this.handleChange}
                         value={this.state.name}
                         required
@@ -50,7 +52,7 @@ class LogUp extends React.Component {
                     <FormInput 
                         name='email' 
                         type='email'
-                        label='email'
+                        label='Email'
                         handleChange={this.handleChange}
                         value={this.state.email}
                         required
@@ -58,7 +60,7 @@ class LogUp extends React.Component {
                     <FormInput
                         name='password' 
                         type='password'
-                        label='password'
+                        label='Password'
                         handleChange={this.handleChange}
                         value={this.state.password}
                         required
@@ -66,12 +68,12 @@ class LogUp extends React.Component {
                     <FormInput
                         name='confirmPassword' 
                         type='password'
-                        label='confirm password'
+                        label='Confirm Password'
                         handleChange={this.handleChange}
                         value={this.state.confirmPassword}
                         required
                     />
-                    <CustomButton type='submit'>Sign In</CustomButton>
+                    <CustomButton type='submit'>Sign Up</CustomButton>
                 </form>
             </div>
         )
