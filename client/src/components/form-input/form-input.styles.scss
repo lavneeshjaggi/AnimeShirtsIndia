@@ -7,16 +7,15 @@ $sub-color: #F5D020;
     color: $sub-color
 }
 
-.group {
+.form-input {
     margin: 45px 0;
     position: relative;
 
-    .form-input {
+    .form {
         background: none;
         background-color: $main-color;
         border: none;
         border-bottom: 1px solid $sub-color;
-        border-radius: 0;
         color: $sub-color;
         display: block;
         font-size: 18px;
@@ -45,7 +44,7 @@ $sub-color: #F5D020;
         pointer-events: none;
         position: absolute;
         top: 9px;
-        transition: 300ms ease all;
+        transition: 300ms ease-in-out;
 
         &.shrink {
             @include shrinkLabel();
