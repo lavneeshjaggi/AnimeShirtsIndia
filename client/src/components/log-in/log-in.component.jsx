@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
@@ -33,8 +34,8 @@ class LogIn extends React.Component {
     render() {
         return (
             <div className='log-in'>
-                <h2 className='title'>I already have an account</h2>
-                <span>Sign in with your email and password</span>
+                <h2 className='title'>Sign In</h2>
+                <span>Sign into your account</span>
 
                 <form onSubmit={this.handleSubmit}>
                     <FormInput 
@@ -54,6 +55,12 @@ class LogIn extends React.Component {
                         required
                     />
                     <CustomButton type='submit'>Sign In</CustomButton>
+                    <h4 className='option'>
+                        Don't have an account? 
+                        <Link className='route' to='/signup'>
+                            Sign Up
+                        </Link>
+                    </h4>
                 </form>
             </div>
         )

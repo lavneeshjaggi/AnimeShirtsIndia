@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
-import './log-up.styles.scss';
+import './register.styles.scss';
 
-class LogUp extends React.Component {
+class Register extends React.Component {
     constructor() {
         super();
 
@@ -19,6 +20,12 @@ class LogUp extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
+
+        const { password, confirmPassword } = event.target;
+
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+        }
 
         this.setState({
             name: '',
@@ -36,9 +43,9 @@ class LogUp extends React.Component {
 
     render() {
         return (
-            <div className='log-up'>
-                <h2 className='title'>I do not have an account</h2>
-                <span>Sign up with your email and password</span>
+            <div className='register'>
+                <h2 className='title'>Sign Up</h2>
+                <span>Create your account</span>
 
                 <form onSubmit={this.handleSubmit}>
                     <FormInput 
@@ -74,10 +81,16 @@ class LogUp extends React.Component {
                         required
                     />
                     <CustomButton type='submit'>Sign Up</CustomButton>
+                    <h4 className='option'>
+                        Already have an account?
+                        <Link className='route' to='/signin'>
+                            Sign In
+                        </Link>
+                    </h4>
                 </form>
             </div>
         )
     }
 }
 
-export default LogUp;
+export default Register;

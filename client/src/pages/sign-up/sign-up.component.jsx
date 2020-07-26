@@ -1,12 +1,12 @@
 import React from 'react';
 
-import LogUp from '../../components/log-up/log-up.component';
+import Register from '../../components/register/register.component';
 
 import './sign-up.styles.scss';
 
 const SignUp = () => (
     <div className='sign-up'>
-        <LogUp />
+        <Register />
     </div>
 );
 
