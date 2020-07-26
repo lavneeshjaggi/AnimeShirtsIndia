@@ -171,7 +171,7 @@ const SHOP_DATA = [
     items: [
       {
         id: 25,
-        title: 'Interracial',
+        title: 'Black and White',
         imageUrl: 'https://images.unsplash.com/photo-1506274512-56255c252865?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 25
       },
