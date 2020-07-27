@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
@@ -21,36 +22,34 @@ class Register extends React.Component {
     handleSubmit = async event => {
         event.preventDefault();
 
-        const { password, confirmPassword } = this.state;
+        const { name, email, password, confirmPassword } = this.state;
 
         if (password !== confirmPassword) {
             alert('Passwords do not match');
         } else if (password.length < 6) {
             alert('Password must have at least 6 characters')
         } else {
-            console.log('Success');
+            const newUser = {
+                name: name,
+                username: email,
+                email: email,
+                password: password
+            }
 
-            // const newUser = {
-            //     name: name,
-            //     username: email,
-            //     email: email,
-            //     password: password
-            // }
+            try {
+                const config = {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                };
 
-            // try {
-            //     const config = {
-            //         headers: {
-            //             'Content-Type': 'application/json'
-            //         }
-            //     };
+                const body = JSON.stringify(newUser);
 
-            //     const body = JSON.stringify(newUser);
-
-            //     const response = await axios.post('/register', body, config);
-            //     console.log(response.data);
-            // } catch (error) {
-            //     console.log(error.response.data);
-            // }
+                const response = await axios.post('/register', body, config);
+                console.log(response.data);
+            } catch (error) {
+                console.log(error.response.data);
+            }
 
             this.setState({
                 name: '',
