@@ -54,7 +54,7 @@ class LogIn extends React.Component {
                         value={this.state.password}
                         required
                     />
-                    <CustomButton type='submit'>Sign In</CustomButton>
+                    <CustomButton type='submit'>sign in</CustomButton>
                     <h4 className='option'>
                         Don't have an account? 
                         <Link className='route' to='/signup'>

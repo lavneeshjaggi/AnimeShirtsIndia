@@ -106,7 +106,7 @@ class Register extends React.Component {
                         value={this.state.confirmPassword}
                         required
                     />
-                    <CustomButton type='submit'>Sign Up</CustomButton>
+                    <CustomButton type='submit'>sign up</CustomButton>
                     <h4 className='option'>
                         Already have an account?
                         <Link className='route' to='/signin'>
