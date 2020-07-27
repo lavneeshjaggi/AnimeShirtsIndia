@@ -21,10 +21,10 @@ class Register extends React.Component {
     }
 
     componentDidMount() {
-        this.getUser();
+        this.redirect();
     }
 
-    getUser = async () => {
+    redirect = async () => {
         const response = await axios.get('/authenticated');
 
         if (response.data.user) {
@@ -60,7 +60,7 @@ class Register extends React.Component {
 
                 await axios.post('/register', body, config);
 
-                this.getUser();
+                this.redirect();
             } catch (error) {
                 alert(error.response.data);
             }

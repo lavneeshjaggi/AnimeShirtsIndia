@@ -21,17 +21,17 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getUser();
+    this.isLoggedIn();
   }
 
-  getUser = async () => {
-      const response = await axios.get('/authenticated');
+  isLoggedIn = async () => {
+    const response = await axios.get('/authenticated');
 
-      if (response.data.user) {
-          this.setState({
-              loggedIn: true,
-          });
-      }
+    if (response.data.user) {
+      this.setState({
+          loggedIn: true,
+      });
+    }
   }
 
   render() {
