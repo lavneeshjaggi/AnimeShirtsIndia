@@ -36,6 +36,7 @@ app.use('/shop', require('./routes/shop'));
 app.use('/login', require('./routes/sign-in-sign-out-sign-up/sign-in'));
 app.use('/logout', require('./routes/sign-in-sign-out-sign-up/sign-out'));
 app.use('/register', require('./routes/sign-in-sign-out-sign-up/sign-up'));
+app.use('/authenticated', require('./routes/authenticated'));
 
 const port = process.env.PORT || 5000;
 
