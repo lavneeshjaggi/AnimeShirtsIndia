@@ -96,7 +96,7 @@ class Register extends React.Component {
                         label='Password'
                         handleChange={this.handleChange}
                         value={this.state.password}
-                        required
+                        minLength='6'
                     />
                     <FormInput
                         name='confirmPassword' 
@@ -104,7 +104,7 @@ class Register extends React.Component {
                         label='Confirm Password'
                         handleChange={this.handleChange}
                         value={this.state.confirmPassword}
-                        required
+                        minLength='6'
                     />
                     <CustomButton type='submit'>sign up</CustomButton>
                     <h4 className='option'>

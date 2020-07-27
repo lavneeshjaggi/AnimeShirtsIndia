@@ -52,7 +52,7 @@ class LogIn extends React.Component {
                         label='Password'
                         handleChange={this.handleChange}
                         value={this.state.password}
-                        required
+                        minLength='6'
                     />
                     <CustomButton type='submit'>sign in</CustomButton>
                     <h4 className='option'>
