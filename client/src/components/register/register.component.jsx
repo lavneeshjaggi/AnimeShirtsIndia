@@ -58,18 +58,19 @@ class Register extends React.Component {
 
                 const body = JSON.stringify(newUser);
 
-                axios.post('/register', body, config);
+                await axios.post('/register', body, config);
 
-                this.setState({
-                    name: '',
-                    email: '',
-                    password: '',
-                    confirmPassword: '',
-                    redirectTo: '/'
-                });
+                this.getUser();
             } catch (error) {
                 alert(error.response.data);
             }
+
+            this.setState({
+                name: '',
+                email: '',
+                password: '',
+                confirmPassword: '',
+            });
         }
     };
 

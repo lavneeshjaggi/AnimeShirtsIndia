@@ -52,16 +52,17 @@ class LogIn extends React.Component {
 
             const body = JSON.stringify(newUser);
 
-            axios.post('/login', body, config);
+            await axios.post('/login', body, config);
 
-            this.setState({
-                email: '',
-                password: '',
-                redirectTo: '/'
-            });
+            this.getUser();
         } catch (error) {
             alert(error.response.data);
         }
+
+        this.setState({
+            email: '',
+            password: '',
+        });
     };
 
     handleChange = event => {

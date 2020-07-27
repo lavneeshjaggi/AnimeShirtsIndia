@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import { Switch, Route } from 'react-router-dom';
 
@@ -10,18 +11,42 @@ import SignUp from './pages/sign-up/sign-up.component';
 
 import './App.css';
 
-const App = () => {
-  return (
-    <div>
-      <Header />
-      <Switch>
-        <Route exact path='/' component={Homepage} />
-        <Route path='/shop' component={ShopPage} /> 
-        <Route path='/signin' component={SignIn} /> 
-        <Route path='/signup' component={SignUp} /> 
-      </Switch>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      loggedIn: false,
+    }
+  }
+
+  componentDidMount() {
+    this.getUser();
+  }
+
+  getUser = async () => {
+      const response = await axios.get('/authenticated');
+
+      if (response.data.user) {
+          this.setState({
+              loggedIn: true,
+          });
+      }
+  }
+
+  render() {
+    return (
+      <div>
+        <Header loggedIn={this.state.loggedIn}/>
+        <Switch>
+          <Route exact path='/' component={Homepage} />
+          <Route path='/shop' component={ShopPage} /> 
+          <Route path='/signin' component={SignIn} /> 
+          <Route path='/signup' component={SignUp} /> 
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;
