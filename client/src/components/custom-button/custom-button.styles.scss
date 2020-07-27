@@ -19,5 +19,9 @@
         background-color: #F5D020;
         border: 1px solid #232526;
         color: #232526;
+    } 
+
+    &:focus {
+        outline: none;
     }
 }
