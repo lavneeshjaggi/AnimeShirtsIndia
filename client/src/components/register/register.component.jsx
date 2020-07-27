@@ -46,9 +46,8 @@ class Register extends React.Component {
                 const body = JSON.stringify(newUser);
 
                 const response = await axios.post('/register', body, config);
-                console.log(response.data);
             } catch (error) {
-                console.log(error.response.data);
+                alert(error.response.data);
             }
 
             this.setState({
