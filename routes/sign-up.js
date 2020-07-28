@@ -3,7 +3,7 @@ const express  = require('express'),
 
 const router = express.Router();
 
-const User = require('../../models/user');
+const User = require('../models/user');
 
 router.post('/', function(req, res) {
     const { name, email, username, password } = req.body;
@@ -16,7 +16,7 @@ router.post('/', function(req, res) {
         if (error) {
             console.log(error.message);
 
-            return res.status(500).json({ msg: "Server Error"});
+            return res.status(500).send(error.message);
         }
 
         passport.authenticate('local')(req, res, function() {

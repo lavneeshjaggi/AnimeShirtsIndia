@@ -61,16 +61,16 @@ class Register extends React.Component {
                 await axios.post('/register', body, config);
 
                 this.redirect();
-            } catch (error) {
-                alert(error.response.data);
-            }
 
-            this.setState({
-                name: '',
-                email: '',
-                password: '',
-                confirmPassword: '',
-            });
+                this.setState({
+                    name: '',
+                    email: '',
+                    password: '',
+                    confirmPassword: '',
+                });
+            } catch (error) {
+                alert(JSON.stringify(error.response.data));
+            }
         }
     };
 
