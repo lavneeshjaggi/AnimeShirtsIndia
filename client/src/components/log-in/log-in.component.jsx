@@ -97,7 +97,19 @@ class LogIn extends React.Component {
                             value={this.state.password}
                             minLength='6'
                         />
-                        <CustomButton type='submit'>sign in</CustomButton>
+                        <div className='buttons'>
+                            <CustomButton 
+                                type='submit'
+                            >
+                                sign in
+                            </CustomButton>
+                            <CustomButton 
+                                type='submit' 
+                                isGoogleSignIn
+                            >
+                                sign in with google
+                            </CustomButton>
+                        </div>
                         <h4 className='option'>
                             Don't have an account? 
                             <Link className='route' to='/signup'>

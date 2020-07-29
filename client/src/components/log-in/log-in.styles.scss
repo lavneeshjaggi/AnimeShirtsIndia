@@ -1,5 +1,7 @@
 .log-in {
-    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    width: 420px;
 
     .title {
         margin: 6px 0;
@@ -12,5 +14,10 @@
             color: #20BF55;
             margin-left: 9px;
         }
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
     }
 }

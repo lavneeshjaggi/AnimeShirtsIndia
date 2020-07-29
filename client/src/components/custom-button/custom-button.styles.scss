@@ -24,4 +24,12 @@
     &:focus {
         outline: none;
     }
+
+    &.google-sign-in {
+        &:hover {
+            background-color: #357AE8;
+            border: none;
+            color: #FFFFFF;
+        }
+    }
 }
