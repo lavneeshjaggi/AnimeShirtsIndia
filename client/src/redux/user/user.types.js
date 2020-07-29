@@ -1,6 +1,5 @@
 const UserActionTypes = {
-    SIGN_UP_SUCCESS: 'SIGN_UP_SUCCESS',
-    SIGN_UP_FAILURE: 'SIGN_UP_FAILURE'
+    SET_CURRENT_USER: 'SET_CURRENT_USER'
 }
 
 export default UserActionTypes;
