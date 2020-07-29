@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -6,12 +7,12 @@ import  { ReactComponent as Logo } from '../../assets/yellow-raven.svg';
 
 import './header.styles.scss';
 
-class Header extends React.Component {
-    getUser = async () => {
+const Header  = ({ currentUser }) => {
+    const getUser = async () => {
         return await axios.get('/authenticated');
     }
 
-    logOut = async event => {
+    const logOut = async event => {
         event.preventDefault();
 
         const userData = await this.getUser();
@@ -39,39 +40,41 @@ class Header extends React.Component {
         }
     }
 
-    render() {
-        return (    
-            <div className='header'>
-                <Link className='logo-container' to='/'>
-                    <Logo className='logo' />
+    return (    
+        <div className='header'>
+            <Link className='logo-container' to='/'>
+                <Logo className='logo' />
+            </Link>
+            <div className='options'>
+                <Link className='option' to='/shop'>
+                    Shop
                 </Link>
-                <div className='options'>
-                    <Link className='option' to='/shop'>
-                        Shop
-                    </Link>
-                    <Link className='option' to='/contact'>
-                        Contact
-                    </Link>
-                    {
-                        this.props.loggedIn 
-                        ?
-                        <Link className='option' to='#' onClick={this.logOut}>Sign Out</Link> 
-                        :
-                        (
-                            <div>
-                                <Link className='option' to='/signin'>
-                                    Sign In
-                                </Link>
-                                <Link to='signup'>
-                                    Sign Up
-                                </Link>
-                            </div>
-                        )
-                    }
-                </div>
+                <Link className='option' to='/contact'>
+                    Contact
+                </Link>
+                {
+                    currentUser
+                    ?
+                    <Link className='option' to='#' onClick={logOut}>Sign Out</Link> 
+                    :
+                    (
+                        <div>
+                            <Link className='option' to='/signin'>
+                                Sign In
+                            </Link>
+                            <Link to='signup'>
+                                Sign Up
+                            </Link>
+                        </div>
+                    )
+                }
             </div>
-        );
-    }
+        </div>
+    );   
 };
 
-export default Header;
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser
+}); 
+
+export default connect(mapStateToProps)(Header);
