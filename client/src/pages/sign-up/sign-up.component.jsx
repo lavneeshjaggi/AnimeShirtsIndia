@@ -4,10 +4,10 @@ import Register from '../../components/register/register.component';
 
 import './sign-up.styles.scss';
 
-const SignUp = () => (
+const SignUpPage = () => (
     <div className='sign-up'>
         <Register />
     </div>
 );
 
-export default SignUp;
+export default SignUpPage;
