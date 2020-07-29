@@ -69,7 +69,7 @@ class Register extends React.Component {
                     confirmPassword: '',
                 });
             } catch (error) {
-                alert(JSON.stringify(error.response.data));
+                alert(error.response.data);
             }
         }
     };

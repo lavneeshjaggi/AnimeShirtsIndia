@@ -14,8 +14,6 @@ router.post('/', function(req, res) {
         email: email
     }), password, function(error, user) {
         if (error) {
-            console.log(error.message);
-
             return res.status(500).send(error.message);
         }
 
