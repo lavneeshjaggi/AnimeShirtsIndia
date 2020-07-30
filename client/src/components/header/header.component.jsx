@@ -1,23 +1,19 @@
 import React from 'react';
+import axios from 'axios';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 import  { ReactComponent as Logo } from '../../assets/yellow-raven.svg';
 
 import './header.styles.scss';
 
 const Header  = ({ currentUser }) => {
-    const getUser = async () => {
-        return await axios.get('/authenticated');
-    }
-
     const logOut = async event => {
         event.preventDefault();
 
-        const userData = await this.getUser();
+        const response = await axios.get('/authenticated');
 
-        const user = userData.data.user;
+        const user = response.data.user;
 
         try {
             const config = {
@@ -27,6 +23,8 @@ const Header  = ({ currentUser }) => {
             };
 
             const data = {
+                cart: user.cart,
+                name: user.name,
                 username: user.username,
                 email: user.email,
                 id: user._id
