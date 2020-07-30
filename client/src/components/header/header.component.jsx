@@ -9,8 +9,6 @@ import './header.styles.scss';
 
 const Header  = ({ currentUser }) => {
     const logOut = async event => {
-        event.preventDefault();
-
         const response = await axios.get('/authenticated');
 
         const user = response.data.user;
@@ -52,15 +50,16 @@ const Header  = ({ currentUser }) => {
                 </Link>
                 {
                     currentUser
-                    ?
-                    <Link className='option' to='#' onClick={logOut}>Sign Out</Link> 
-                    :
-                    (
+                    ? (
+                        <Link className='option' to='/signin' onClick={logOut}>
+                            Sign Out
+                        </Link> 
+                    ) : (
                         <div>
                             <Link className='option' to='/signin'>
                                 Sign In
                             </Link>
-                            <Link to='signup'>
+                            <Link to='/signup'>
                                 Sign Up
                             </Link>
                         </div>
