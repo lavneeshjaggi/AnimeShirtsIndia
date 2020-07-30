@@ -3,7 +3,9 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import  { ReactComponent as Logo } from '../../assets/yellow-raven.svg';
+import { ReactComponent as Logo } from '../../assets/yellow-raven.svg';
+
+import CartIcon from '../cart-icon/cart-icon.component';
 
 import './header.styles.scss';
 
@@ -49,12 +51,11 @@ const Header  = ({ currentUser }) => {
                     Contact
                 </Link>
                 {
-                    currentUser
-                    ? (
+                    currentUser ? 
                         <Link className='option' to='/signin' onClick={logOut}>
                             Sign Out
                         </Link> 
-                    ) : (
+                    : (
                         <div>
                             <Link className='option' to='/signin'>
                                 Sign In
@@ -65,6 +66,7 @@ const Header  = ({ currentUser }) => {
                         </div>
                     )
                 }
+                <CartIcon />
             </div>
         </div>
     );   
