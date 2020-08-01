@@ -1,9 +1,8 @@
 import React from 'react';
 
-import CustomButtom from '../custom-button/custom-button.component';
+import CustomButton from '../custom-button/custom-button.component';
 
 import './collection-item.styles.scss';
-import CustomButton from '../custom-button/custom-button.component';
 
 const CollectionItem = ({ title, imageUrl, price }) => (
     <div className='collection-item'>

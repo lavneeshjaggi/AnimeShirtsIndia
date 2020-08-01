@@ -45,6 +45,9 @@ const Header  = ({ currentUser, hidden }) => {
                 <Logo className='logo' />
             </Link>
             <div className='options'>
+                <Link className='option' to='/'>
+                    Home
+                </Link>
                 <Link className='option' to='/shop'>
                     Shop
                 </Link>
@@ -60,6 +63,9 @@ const Header  = ({ currentUser, hidden }) => {
                         <div>
                             <Link className='option' to='/signin'>
                                 Sign In
+                            </Link>
+                            <Link className='option' to='/signup'>
+                                Sign Up
                             </Link>
                         </div>
                     )
