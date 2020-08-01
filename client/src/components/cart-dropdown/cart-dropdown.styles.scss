@@ -3,18 +3,18 @@
     border: 1px solid #F5D020;
     display: flex;
     flex-direction: column;
-    height: 340px;
+    height: 522px;
     padding: 21px;
     position: absolute;
     right: 39px;
     top: 90px;
-    width: 240px;
+    width: 265px;
     z-index: 1;
 
     .cart-items {
         display: flex;
         flex-direction: column;
-        height: 240px;
+        height: 448px;
         overflow: scroll;
     }
 
