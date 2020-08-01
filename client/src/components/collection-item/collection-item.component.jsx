@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import CustomButton from '../custom-button/custom-button.component';
@@ -7,8 +9,16 @@ import { addItem } from '../../redux/cart/cart.actions';
 
 import './collection-item.styles.scss';
 
-const CollectionItem = ({ item, addItem }) => {
-    const { imageUrl, title, price } = item
+const CollectionItem = ({ item, addItem, history }) => {
+    const { imageUrl, title, price } = item;
+    var user = useRef(null);
+    useEffect(() => {
+        async function fetchData() {
+            const response = await axios.get('/authenticated');
+            user.current = response.data.user;
+        }
+        fetchData();
+    }, [])
     return (
         <div className='collection-item'>
             <div 
@@ -23,7 +33,7 @@ const CollectionItem = ({ item, addItem }) => {
             </div>
             <CustomButton 
                 inverted
-                onClick={() => addItem(item)}
+                onClick={async () => user.current ? addItem(item) : history.push('/signin') }
             >
                 add to cart
             </CustomButton>
@@ -35,7 +45,9 @@ const mapDispatchToProps = dispatch => ({
     addItem: item => dispatch(addItem(item))
 });
 
-export default connect(
-    null,
-    mapDispatchToProps
-)(CollectionItem);
+export default withRouter(
+    connect(
+        null,
+        mapDispatchToProps
+    )(CollectionItem)
+);
