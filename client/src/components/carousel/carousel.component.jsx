@@ -36,7 +36,7 @@ var images = [
     }
 ];
 
-const Carousel = ({ history, match }) => {
+const Carousel = ({ history }) => {
     const [x, setX] = useState(0);
     const goLeft = () => {
         x === 0 ? setX(-100 * (images.length - 1)) : setX(x + 100);
