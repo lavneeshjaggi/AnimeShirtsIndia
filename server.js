@@ -26,10 +26,6 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.get('/', function(req, res) {
-    res.send('Hello World!');
-});
-
 app.use('/authenticated', require('./routes/authenticated'));
 app.use('/login', require('./routes/sign-in'));
 app.use('/logout', require('./routes/sign-out'));
