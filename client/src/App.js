@@ -10,6 +10,7 @@ import ShopPage from './pages/shop/shop.component';
 import ContactPage from './pages/contact/contact.component';
 import SignInPage from './pages/sign-in/sign-in.component'; 
 import SignUpPage from './pages/sign-up/sign-up.component'; 
+import CheckoutPage from './pages/checkout/checkout.component';
 
 import { setCurrentUser } from './redux/user/user.actions';
 
@@ -48,6 +49,7 @@ class App extends React.Component {
           <Route path='/contact' component={ContactPage} /> 
           <Route path='/signin' component={SignInPage} /> 
           <Route path='/signup' component={SignUpPage} /> 
+          <Route path='/checkout' component={CheckoutPage} /> 
         </Switch>
       </div>
     );
