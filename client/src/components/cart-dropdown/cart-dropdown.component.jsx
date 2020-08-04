@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -10,20 +11,37 @@ import { selectCartItems } from '../../redux/cart/cart.selectors';
 
 import './cart-dropdown.styles.scss';
 
-const CartDropdown = ({ cartItems, history }) => (
-    <div className='cart-dropdown'>
-        <div className='cart-items'>
-            {cartItems.length ? (
-                cartItems.map(cartItem => (
-                    <CartItem key={cartItem.id} item={cartItem}/>
-                ))
-            ) : (
-                <span className='empty-message'>Your cart is empty</span>
-            )}
+const CartDropdown = ({ cartItems, history }) => {
+    var user = useRef(null);
+    async function fetchData() {
+        const response = await axios.get('/authenticated');
+        user.current = response.data.user;
+    }
+    fetchData();
+
+    return (
+        <div className='cart-dropdown'>
+            <div className='cart-items'>
+                {
+                    cartItems.map(cartItem => (
+                        <CartItem key={cartItem.id} item={cartItem}/>
+                    ))
+                }
+            </div>
+            <CustomButton 
+                onClick={() => {
+                    user.current ? (
+                        history.push('/checkout')
+                    ) : (
+                        history.push('signin')
+                    )
+                }
+            }>
+                go to checkout
+            </CustomButton>
         </div>
-        <CustomButton onClick={() => history.push('/checkout')}>go to checkout</CustomButton>
-    </div>
-);
+    );
+};
 
 const mapStateToProps = createStructuredSelector({
     cartItems: selectCartItems

@@ -18,7 +18,7 @@ const CollectionItem = ({ item, addItem, history }) => {
             user.current = response.data.user;
         }
         fetchData();
-    }, [])
+    }, []);
     return (
         <div className='collection-item'>
             <div 
@@ -38,7 +38,7 @@ const CollectionItem = ({ item, addItem, history }) => {
                 add to cart
             </CustomButton>
         </div>
-    )
+    );
 };
 
 const mapDispatchToProps = dispatch => ({
