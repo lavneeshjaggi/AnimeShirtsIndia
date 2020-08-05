@@ -7,11 +7,12 @@ import { createStructuredSelector } from 'reselect';
 import CartItem from '../cart-item/cart-item.component';
 import CustomButton from '../custom-button/custom-button.component';
 
+import { toggleCartHidden } from '../../redux/cart/cart.actions';
 import { selectCartItems } from '../../redux/cart/cart.selectors';
 
 import './cart-dropdown.styles.scss';
 
-const CartDropdown = ({ cartItems, history }) => {
+const CartDropdown = ({ cartItems, history, dispatch }) => {
     var user = useRef(null);
     async function fetchData() {
         const response = await axios.get('/authenticated');
@@ -30,10 +31,11 @@ const CartDropdown = ({ cartItems, history }) => {
             </div>
             <CustomButton 
                 onClick={() => {
+                    dispatch(toggleCartHidden())
                     user.current ? (
                         history.push('/checkout')
                     ) : (
-                        history.push('signin')
+                        history.push('/signin')
                     )
                 }
             }>
@@ -44,7 +46,7 @@ const CartDropdown = ({ cartItems, history }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-    cartItems: selectCartItems
+    cartItems: selectCartItems,
 });
 
 export default withRouter(connect(mapStateToProps)(CartDropdown));
