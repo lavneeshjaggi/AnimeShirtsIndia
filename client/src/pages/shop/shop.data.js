@@ -6,7 +6,7 @@ const SHOP_DATA = [
     items: [
       {
         id: 1,
-        title: 'Dynamic Red and Yellow',
+        title: 'Dynamic Friends',
         imageUrl: 'https://images.unsplash.com/photo-1542482378-4e3530c8e525?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         price: 25
       },
