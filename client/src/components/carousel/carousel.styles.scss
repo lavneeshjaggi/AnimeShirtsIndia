@@ -3,11 +3,11 @@
   border: 1px solid #f5d020;
   box-sizing: border-box;
   display: flex;
-  height: 90vh;
-  margin-bottom: 18vh;
+  height: 60vh;
+  margin-bottom: 21vh;
   overflow: hidden;
   position: relative;
-  width: 100%;
+  width: 98.8vw;
 
   &:hover {
     cursor: pointer;
@@ -74,12 +74,12 @@
 
   .btn {
     align-items: center;
-    background: black;
+    background: #232526;
     border: 1px solid #f5d020;
     color: #f5d020;
     cursor: pointer;
     font-size: 3vw;
-    height: 9%;
+    height: 15%;
     justify-content: center;
     opacity: 0.6;
     outline: none;
@@ -101,5 +101,16 @@
   #right {
     right: 0;
     @extend .btn;
+  }
+
+  @media screen and (max-width: 800px) {
+    .slider {
+      .img {
+        background-position-x: right;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+      }
+    }
   }
 }

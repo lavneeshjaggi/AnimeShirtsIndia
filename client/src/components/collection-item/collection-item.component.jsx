@@ -1,24 +1,18 @@
-import React, { useEffect, useRef } from "react";
-import axios from "axios";
+import React from "react";
+import { createStructuredSelector } from "reselect";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import CustomButton from "../custom-button/custom-button.component";
 
 import { addItem } from "../../redux/cart/cart.actions";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import "./collection-item.styles.scss";
 
-const CollectionItem = ({ item, addItem, history }) => {
+const CollectionItem = ({ item, addItem, history, currentUser }) => {
   const { imageUrl, title, price } = item;
-  var user = useRef(null);
-  useEffect(() => {
-    async function fetchData() {
-      const response = await axios.get("/authenticated");
-      user.current = response.data.user;
-    }
-    fetchData();
-  }, []);
+
   return (
     <div className="collection-item">
       <div
@@ -29,13 +23,10 @@ const CollectionItem = ({ item, addItem, history }) => {
       />
       <div className="collection-footer">
         <span className="name">{title}</span>
-        <span className="price">${price}</span>
+        <span className="price">Rs {price}</span>
       </div>
       <CustomButton
-        inverted
-        onClick={async () =>
-          user.current ? addItem(item) : history.push("/signin")
-        }
+        onClick={() => (currentUser ? addItem(item) : history.push("/signin"))}
       >
         add to cart
       </CustomButton>
@@ -43,8 +34,14 @@ const CollectionItem = ({ item, addItem, history }) => {
   );
 };
 
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addItem(item)),
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(CollectionItem));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(CollectionItem)
+);

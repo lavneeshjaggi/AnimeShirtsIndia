@@ -1,4 +1,5 @@
 .header {
+  align-items: center;
   display: flex;
   height: 60px;
   justify-content: space-between;
@@ -26,7 +27,28 @@
 
     .option {
       cursor: pointer;
+      margin-right: 12px;
       padding: 9px 15px;
+
+      &:hover {
+        background-color: #f5d020;
+        border-radius: 3rem;
+        color: #232526;
+      }
     }
+
+    @media screen and (max-width: 800px) {
+      width: 100%;
+
+      & .hidden {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    height: 60px;
+    padding: 10px;
+    margin-bottom: 20px;
   }
 }

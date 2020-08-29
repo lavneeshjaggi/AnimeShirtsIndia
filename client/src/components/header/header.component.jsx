@@ -1,7 +1,6 @@
 import React from "react";
-import axios from "axios";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 
 import { ReactComponent as Logo } from "../../assets/yellow-raven.svg";
@@ -9,38 +8,26 @@ import { ReactComponent as Logo } from "../../assets/yellow-raven.svg";
 import CartIcon from "../cart-icon/cart-icon.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
+import { logOut } from "../../redux/user/user.actions";
+import { clearCart } from "../../redux/cart/cart.actions";
 import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import "./header.styles.scss";
 
-const Header = ({ currentUser, hidden }) => {
-  const logOut = async (event) => {
-    const response = await axios.get("/authenticated");
+const Header = ({ currentUser, hidden, logOut, clearCart, history }) => {
+  const signOut = (event) => {
+    event.preventDefault();
 
-    const user = response.data.user;
+    logOut();
+    clearCart();
 
-    try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-
-      const data = {
-        cart: user.cart,
-        name: user.name,
-        username: user.username,
-        email: user.email,
-        id: user._id,
-      };
-
-      const body = JSON.stringify(data);
-
-      await axios.post("/logout", body, config);
-    } catch (error) {
-      alert(error.response.data);
-    }
+    const timeFunction = () => {
+      setTimeout(() => {
+        history.push("/signin");
+      }, 750);
+    };
+    timeFunction();
   };
 
   return (
@@ -55,11 +42,8 @@ const Header = ({ currentUser, hidden }) => {
         <Link className="option" to="/shop">
           Shop
         </Link>
-        <Link className="option" to="/contact">
-          Contact
-        </Link>
         {currentUser ? (
-          <Link className="option" to="/signin" onClick={logOut}>
+          <Link className="option" to="/signin" onClick={signOut}>
             Sign Out
           </Link>
         ) : (
@@ -67,7 +51,7 @@ const Header = ({ currentUser, hidden }) => {
             <Link className="option" to="/signin">
               Sign In
             </Link>
-            <Link className="option" to="/signup">
+            <Link className="option hidden" to="/signup">
               Sign Up
             </Link>
           </div>
@@ -78,10 +62,14 @@ const Header = ({ currentUser, hidden }) => {
     </div>
   );
 };
-
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   hidden: selectCartHidden,
 });
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => ({
+  logOut: () => dispatch(logOut()),
+  clearCart: () => dispatch(clearCart()),
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
