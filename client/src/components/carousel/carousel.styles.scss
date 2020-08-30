@@ -60,14 +60,26 @@
 
       .title {
         color: #f5d020;
-        font-size: 22px;
+        font-size: 21px;
         font-weight: bold;
         margin-bottom: 6px;
+
+        @media screen and (max-width: 800px) {
+          font-size: 12px;
+        }
       }
 
       .subtitle {
         font-size: 15px;
         font-weight: lighter;
+
+        @media screen and (max-width: 800px) {
+          font-size: 12px;
+        }
+      }
+
+      @media screen and (max-width: 800px) {
+        width: 30vw;
       }
     }
   }

@@ -16,6 +16,12 @@
       height: 120px;
       width: 120px;
     }
+
+    @media screen and (max-width: 800px) {
+      margin-top: -51px;
+      padding: 0px;
+      width: 50px;
+    }
   }
 
   .options {
