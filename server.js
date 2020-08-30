@@ -1,4 +1,5 @@
 const express = require("express"),
+  compression = require("compression"),
   session = require("express-session"),
   config = require("config"),
   passport = require("passport"),
@@ -12,6 +13,7 @@ const connectDB = require("./config/db"),
 connectDB();
 
 app.use(express.json({ extended: false }));
+app.use(compression());
 app.use(
   session({
     secret: config.get("secret"),
