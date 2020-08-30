@@ -111,8 +111,9 @@ const SHOP_DATA = {
       },
       {
         id: 15,
-        title: "Air Jordan Limited",
-        imageUrl: "https://i.ibb.co/w4k6Ws9/nike-funky.png",
+        title: "Melting",
+        imageUrl:
+          "https://images.unsplash.com/photo-1567119715747-ff9c10f46115?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
         price: 190,
       },
       {
