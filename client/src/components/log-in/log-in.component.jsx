@@ -29,16 +29,16 @@ class LogIn extends React.Component {
     };
 
     try {
-      const config = {
+      const config = axios.create({
         baseURL: "/",
         headers: {
           "Content-Type": "application/json",
         },
-      };
+      });
 
       const body = JSON.stringify(newUser);
 
-      await axios.post("/login", body, config);
+      await config.post("/login", body);
 
       await this.props.history.push("/");
 

@@ -24,12 +24,12 @@ const Header = ({ currentUser, hidden, logOut, clearCart, history }) => {
     const user = response.data.user;
 
     try {
-      const config = {
+      const config = axios.create({
         baseURL: "/",
         headers: {
           "Content-Type": "application/json",
         },
-      };
+      });
 
       const data = {
         cart: user.cart,
@@ -41,7 +41,7 @@ const Header = ({ currentUser, hidden, logOut, clearCart, history }) => {
 
       const body = JSON.stringify(data);
 
-      await axios.post("/logout", body, config);
+      await config.post("/logout", body);
 
       await history.push("/signin");
 

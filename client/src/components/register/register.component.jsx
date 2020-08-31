@@ -34,16 +34,16 @@ class Register extends React.Component {
       };
 
       try {
-        const config = {
+        const config = axios.create({
           baseURL: "/",
           headers: {
             "Content-Type": "application/json",
           },
-        };
+        });
 
         const body = JSON.stringify(newUser);
 
-        await axios.post("/register", body, config);
+        await config.post("/register", body);
 
         await this.props.history.push("/");
 
