@@ -1,6 +1,7 @@
 const express = require("express"),
   path = require("path"),
   compression = require("compression"),
+  cors = require("cors"),
   session = require("express-session"),
   config = require("config"),
   passport = require("passport"),
@@ -22,6 +23,7 @@ app.use(
     saveUninitialized: false,
   })
 );
+app.use(cors());
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -35,7 +37,7 @@ app.use("/logout", require("./routes/sign-out"));
 app.use("/register", require("./routes/sign-up"));
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, 'client/build'));
+  app.use(express.static(path.join(__dirname, "client/build")));
 
   app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "client/build", "index.html"));
