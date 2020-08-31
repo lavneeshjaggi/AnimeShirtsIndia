@@ -42,12 +42,7 @@ const Header = ({ currentUser, hidden, logOut, clearCart, history }) => {
 
       await axios.post("/logout", body, config);
 
-      const timeFunction = () => {
-        setTimeout(() => {
-          history.push("/signin");
-        }, 750);
-      };
-      await timeFunction();
+      await history.push("/signin");
 
       await clearCart();
     } catch (error) {

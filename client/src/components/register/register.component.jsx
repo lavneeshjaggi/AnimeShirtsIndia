@@ -44,14 +44,9 @@ class Register extends React.Component {
 
         await axios.post("/register", body, config);
 
-        const timeFunction = () => {
-          setTimeout(() => {
-            this.props.history.push("/");
-          }, 3000);
-        };
-        await timeFunction();
+        await this.props.history.push("/");
 
-        this.setState({
+        await this.setState({
           name: "",
           email: "",
           password: "",

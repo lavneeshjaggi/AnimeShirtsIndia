@@ -39,14 +39,9 @@ class LogIn extends React.Component {
 
       await axios.post("/login", body, config);
 
-      const timeFunction = () => {
-        setTimeout(() => {
-          this.props.history.push("/");
-        }, 1500);
-      };
-      await timeFunction();
+      await this.props.history.push("/");
 
-      this.setState({
+      await this.setState({
         email: "",
         password: "",
       });
