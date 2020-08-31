@@ -25,6 +25,7 @@ const Header = ({ currentUser, hidden, logOut, clearCart, history }) => {
 
     try {
       const config = {
+        baseURL: "/",
         headers: {
           "Content-Type": "application/json",
         },

@@ -35,6 +35,7 @@ class Register extends React.Component {
 
       try {
         const config = {
+          baseURL: "/",
           headers: {
             "Content-Type": "application/json",
           },
