@@ -1,11 +1,9 @@
 import React from "react";
+import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
 
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
-
-import { register } from "../../redux/user/user.actions";
 
 import "./register.styles.scss";
 
@@ -24,27 +22,44 @@ class Register extends React.Component {
   handleSubmit = async (event) => {
     await event.preventDefault();
 
-    const { password, confirmPassword } = this.state;
+    const { name, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) alert("Passwords do not match");
     else {
-      const { register } = this.props;
-
-      await register(this.state);
-
-      const timeFunction = () => {
-        setTimeout(() => {
-          this.props.history.push("/");
-        }, 3000);
+      const newUser = {
+        name: name,
+        username: email,
+        email: email,
+        password: password,
       };
-      await timeFunction();
 
-      await this.setState({
-        name: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      });
+      try {
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+
+        const body = JSON.stringify(newUser);
+
+        await axios.post("/register", body, config);
+
+        const timeFunction = () => {
+          setTimeout(() => {
+            this.props.history.push("/");
+          }, 3000);
+        };
+        await timeFunction();
+
+        this.setState({
+          name: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+        });
+      } catch (error) {
+        alert(error.response.data);
+      }
     }
   };
 
@@ -106,8 +121,4 @@ class Register extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  register: (userCredentials) => dispatch(register(userCredentials)),
-});
-
-export default withRouter(connect(null, mapDispatchToProps)(Register));
+export default withRouter(Register);

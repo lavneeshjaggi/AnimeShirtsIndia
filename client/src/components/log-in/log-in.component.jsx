@@ -1,11 +1,9 @@
 import React from "react";
+import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
 
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
-
-import { logIn } from "../../redux/user/user.actions";
 
 import "./log-in.styles.scss";
 
@@ -22,21 +20,39 @@ class LogIn extends React.Component {
   handleSubmit = async (event) => {
     await event.preventDefault();
 
-    const { logIn } = this.props;
+    const { email, password } = this.state;
 
-    await logIn(this.state);
-
-    const timeFunction = () => {
-      setTimeout(() => {
-        this.props.history.push("/");
-      }, 1500);
+    const newUser = {
+      username: email,
+      email: email,
+      password: password,
     };
-    timeFunction();
 
-    await this.setState({
-      email: "",
-      password: "",
-    });
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      const body = JSON.stringify(newUser);
+
+      await axios.post("/login", body, config);
+
+      const timeFunction = () => {
+        setTimeout(() => {
+          this.props.history.push("/");
+        }, 1500);
+      };
+      await timeFunction();
+
+      this.setState({
+        email: "",
+        password: "",
+      });
+    } catch (error) {
+      alert(error.response.data);
+    }
   };
 
   handleChange = (event) => {
@@ -83,8 +99,4 @@ class LogIn extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  logIn: (userCredentials) => dispatch(logIn(userCredentials)),
-});
-
-export default withRouter(connect(null, mapDispatchToProps)(LogIn));
+export default withRouter(LogIn);
