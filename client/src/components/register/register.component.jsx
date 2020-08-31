@@ -21,8 +21,8 @@ class Register extends React.Component {
     };
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  handleSubmit = async (event) => {
+    await event.preventDefault();
 
     const { password, confirmPassword } = this.state;
 
@@ -30,16 +30,16 @@ class Register extends React.Component {
     else {
       const { register } = this.props;
 
-      register(this.state);
+      await register(this.state);
 
       const timeFunction = () => {
         setTimeout(() => {
           this.props.history.push("/");
         }, 3000);
       };
-      timeFunction();
+      await timeFunction();
 
-      this.setState({
+      await this.setState({
         name: "",
         email: "",
         password: "",

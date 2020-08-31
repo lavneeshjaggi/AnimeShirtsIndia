@@ -19,12 +19,12 @@ class LogIn extends React.Component {
     };
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  handleSubmit = async (event) => {
+    await event.preventDefault();
 
     const { logIn } = this.props;
 
-    logIn(this.state);
+    await logIn(this.state);
 
     const timeFunction = () => {
       setTimeout(() => {
@@ -33,7 +33,7 @@ class LogIn extends React.Component {
     };
     timeFunction();
 
-    this.setState({
+    await this.setState({
       email: "",
       password: "",
     });

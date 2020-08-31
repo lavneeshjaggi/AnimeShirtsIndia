@@ -16,18 +16,18 @@ import { selectCurrentUser } from "../../redux/user/user.selectors";
 import "./header.styles.scss";
 
 const Header = ({ currentUser, hidden, logOut, clearCart, history }) => {
-  const signOut = (event) => {
-    event.preventDefault();
+  const signOut = async (event) => {
+    await event.preventDefault();
 
-    logOut();
-    clearCart();
+    await logOut();
+    await clearCart();
 
     const timeFunction = () => {
       setTimeout(() => {
         history.push("/signin");
       }, 750);
     };
-    timeFunction();
+    await timeFunction();
   };
 
   return (
