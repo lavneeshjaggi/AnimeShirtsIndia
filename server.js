@@ -39,38 +39,10 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.get("/authenticated", function (req, res) {
-  if (req.user) res.json({ user: req.user });
-  else res.json({ user: null });
-});
-app.post("/login", passport.authenticate("local"), function (req, res) {
-  return res.status(200).json({ msg: "Login Complete" });
-});
-app.post("/register", function (req, res) {
-  const { name, email, username, password } = req.body;
-
-  User.register(
-    new User({
-      name: name,
-      username: username,
-      email: email,
-    }),
-    password,
-    function (error, user) {
-      if (error) return res.status(500).send(error.message);
-
-      passport.authenticate("local")(req, res, function () {
-        return res.status(200).json({ msg: "Registeration Complete" });
-      });
-    }
-  );
-});
-app.post("/logout", function (req, res) {
-  if (req.user) {
-    req.logout();
-    res.send({ msg: "logging out" });
-  } else res.send({ msg: "no user to logout" });
-});
+app.use("/authenticated", require("./routes/authenticated"));
+app.use("/login", require("./routes/sign-in"));
+app.use("/logout", require("./routes/sign-out"));
+app.use("/register", require("./routes/sign-up"));
 
 const port = process.env.PORT || 5000;
 

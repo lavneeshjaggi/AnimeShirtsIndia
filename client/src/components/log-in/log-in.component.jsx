@@ -17,31 +17,38 @@ class LogIn extends React.Component {
     };
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  handleSubmit = async (event) => {
+    await event.preventDefault();
 
     const { email, password } = this.state;
 
-    axios({
-      url: "login",
-      method: "post",
-      data: {
-        username: email,
-        email,
-        password,
-      },
-    })
-      .then(() => {
-        this.props.history.push("/");
+    const newUser = {
+      username: email,
+      email: email,
+      password: password,
+    };
 
-        this.setState({
-          email: "",
-          password: "",
-        });
-      })
-      .catch((error) => {
-        alert(error.response.data);
+    try {
+      const config = axios.create({
+        baseURL: "/",
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
+
+      const body = JSON.stringify(newUser);
+
+      await config.post("/login", body);
+
+      await this.props.history.push("/");
+
+      await this.setState({
+        email: "",
+        password: "",
+      });
+    } catch (error) {
+      alert(error.response.data);
+    }
   };
 
   handleChange = (event) => {
