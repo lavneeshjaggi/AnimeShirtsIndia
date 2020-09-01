@@ -19,43 +19,36 @@ class Register extends React.Component {
     };
   }
 
-  handleSubmit = async (event) => {
-    await event.preventDefault();
+  handleSubmit = (event) => {
+    event.preventDefault();
 
     const { name, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) alert("Passwords do not match");
     else {
-      const newUser = {
-        name: name,
-        username: email,
-        email: email,
-        password: password,
-      };
+      axios({
+        url: "register",
+        method: "post",
+        data: {
+          name,
+          username: email,
+          email,
+          password,
+        },
+      })
+        .then(() => {
+          this.props.history.push("/");
 
-      try {
-        const config = axios.create({
-          baseURL: "/",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          this.setState({
+            name: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+          });
+        })
+        .catch((error) => {
+          alert(error.response.data);
         });
-
-        const body = JSON.stringify(newUser);
-
-        await config.post("/register", body);
-
-        await this.props.history.push("/");
-
-        await this.setState({
-          name: "",
-          email: "",
-          password: "",
-          confirmPassword: "",
-        });
-      } catch (error) {
-        alert(error.response.data);
-      }
     }
   };
 

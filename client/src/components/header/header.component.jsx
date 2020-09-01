@@ -15,7 +15,7 @@ import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import "./header.styles.scss";
 
-const Header = ({ currentUser, hidden, logOut, clearCart, history }) => {
+const Header = ({ currentUser, hidden, clearCart, history }) => {
   const signOut = async (event) => {
     await event.preventDefault();
 

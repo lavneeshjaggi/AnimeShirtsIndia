@@ -31,11 +31,6 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use("/authenticated", require("./routes/authenticated"));
-app.use("/login", require("./routes/sign-in"));
-app.use("/logout", require("./routes/sign-out"));
-app.use("/register", require("./routes/sign-up"));
-
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
 
@@ -43,6 +38,11 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "client/build", "index.html"));
   });
 }
+
+app.use("/authenticated", require("./routes/authenticated"));
+app.use("/login", require("./routes/sign-in"));
+app.use("/logout", require("./routes/sign-out"));
+app.use("/register", require("./routes/sign-up"));
 
 const port = process.env.PORT || 5000;
 
