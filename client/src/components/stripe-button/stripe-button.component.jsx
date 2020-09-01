@@ -11,7 +11,7 @@ const StripeCheckoutButton = ({ price }) => {
   return (
     <StripeCheckout
       label="Pay Now"
-      name="Big Basket"
+      name="Yellow Raven"
       billingAddress
       shippingAddress
       currency="INR"
