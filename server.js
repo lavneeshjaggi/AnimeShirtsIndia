@@ -1,7 +1,6 @@
 const express = require("express"),
   path = require("path"),
   compression = require("compression"),
-  cors = require("cors"),
   session = require("express-session"),
   config = require("config"),
   passport = require("passport"),
@@ -23,7 +22,6 @@ app.use(
     saveUninitialized: false,
   })
 );
-app.use(cors());
 app.use(passport.initialize());
 app.use(passport.session());
 
