@@ -45,13 +45,6 @@ class Register extends React.Component {
 
         await config.post("/register", body);
 
-        await this.setState({
-          name: "",
-          email: "",
-          password: "",
-          confirmPassword: "",
-        });
-
         await this.props.history.push("/");
       } catch (error) {
         alert(error.response.data);
