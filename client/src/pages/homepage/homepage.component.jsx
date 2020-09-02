@@ -5,11 +5,12 @@ import { connect } from "react-redux";
 import Carousel from "../../components/carousel/carousel.component";
 import Directory from "../../components/directory/directory.component";
 
+import { clearCart } from "../../redux/cart/cart.actions";
 import { setCurrentUser } from "../../redux/user/user.actions";
 
 import "./homepage.styles.scss";
 
-const Homepage = ({ setCurrentUser }) => {
+const Homepage = ({ setCurrentUser, clearCart }) => {
   useEffect(() => {
     const isLoggedIn = async () => {
       const user = await (await axios.get("/authenticated")).data.user;
@@ -21,10 +22,13 @@ const Homepage = ({ setCurrentUser }) => {
           name: user.name,
           email: user.email,
         });
-      else setCurrentUser(null);
+      else {
+        setCurrentUser(null);
+        clearCart();
+      }
     };
     isLoggedIn();
-  }, [setCurrentUser]);
+  }, [setCurrentUser, clearCart]);
 
   return (
     <div className="homepage">
@@ -36,6 +40,7 @@ const Homepage = ({ setCurrentUser }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+  clearCart: () => dispatch(clearCart()),
 });
 
 export default connect(null, mapDispatchToProps)(Homepage);
