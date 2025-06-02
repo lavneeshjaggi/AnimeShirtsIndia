@@ -1,10 +1,9 @@
-import React from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import { Link, withRouter } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
+import { Link, useNavigate } from "react-router-dom";
 
-import { ReactComponent as Logo } from "../../assets/yellow-raven.svg";
+import Logo from "../../assets/yellow-raven.svg";
 
 import CartIcon from "../cart-icon/cart-icon.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
@@ -15,7 +14,9 @@ import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import "./header.styles.scss";
 
-const Header = ({ currentUser, hidden, clearCart, history }) => {
+const Header = ({ currentUser, hidden, clearCart }) => {
+  const navigate = useNavigate();
+
   const signOut = async (event) => {
     await event.preventDefault();
 
@@ -43,7 +44,7 @@ const Header = ({ currentUser, hidden, clearCart, history }) => {
 
       await config.post("/logout", body);
 
-      await history.push("/signin");
+      await navigate("/signin");
 
       await clearCart();
     } catch (error) {
@@ -54,7 +55,7 @@ const Header = ({ currentUser, hidden, clearCart, history }) => {
   return (
     <div className="header">
       <Link className="logo-container" to="/">
-        <Logo className="logo" />
+        <img alt="Logo" src={Logo} className="logo" />
       </Link>
       <div className="options">
         <Link className="option" to="/">
@@ -92,4 +93,4 @@ const mapDispatchToProps = (dispatch) => ({
   clearCart: () => dispatch(clearCart()),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

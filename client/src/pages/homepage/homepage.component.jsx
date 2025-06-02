@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
 import axios from "axios";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 
 import Carousel from "../../components/carousel/carousel.component";

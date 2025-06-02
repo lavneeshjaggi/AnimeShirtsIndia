@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
@@ -45,7 +45,7 @@ class Register extends React.Component {
 
         await config.post("/register", body);
 
-        await this.props.history.push("/");
+        await this.props.navigate("/");
       } catch (error) {
         alert(error.response.data);
       }
@@ -110,4 +110,9 @@ class Register extends React.Component {
   }
 }
 
-export default withRouter(Register);
+const RegisterWithNavigation = (props) => {
+  const navigate = useNavigate();
+  return <Register {...props} navigate={navigate} />;
+};
+
+export default RegisterWithNavigation;

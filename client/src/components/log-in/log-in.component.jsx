@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
@@ -40,7 +40,7 @@ class LogIn extends React.Component {
 
       await config.post("/login", body);
 
-      await this.props.history.push("/");
+      await this.props.navigate("/");
     } catch (error) {
       alert(error.response.data);
     }
@@ -90,4 +90,9 @@ class LogIn extends React.Component {
   }
 }
 
-export default withRouter(LogIn);
+const LogInWithNavigation = (props) => {
+  const navigate = useNavigate();
+  return <LogIn {...props} navigate={navigate} />;
+};
+
+export default LogInWithNavigation;

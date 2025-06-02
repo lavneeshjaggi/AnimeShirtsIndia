@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./carousel.styles.scss";
 
@@ -42,7 +42,8 @@ var images = [
   },
 ];
 
-const Carousel = ({ history }) => {
+const Carousel = () => {
+  const navigate = useNavigate();
   const [x, setX] = useState(0);
   const goLeft = () => {
     x === 0 ? setX(-100 * (images.length - 1)) : setX(x + 100);
@@ -67,7 +68,7 @@ const Carousel = ({ history }) => {
               backgroundImage: `url(${imageUrl})`,
             }}
           />
-          <div onClick={() => history.push("/shop")} className="msg">
+          <div onClick={() => navigate("/shop")} className="msg">
             <h1 className="title">{msg.toUpperCase()} SALE</h1>
             <h2 className="subtitle">SHOP NOW</h2>
           </div>
@@ -83,4 +84,4 @@ const Carousel = ({ history }) => {
   );
 };
 
-export default withRouter(Carousel);
+export default Carousel;
