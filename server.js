@@ -1,6 +1,8 @@
 import "dotenv/config";
+import path from "path";
 import express from "express";
 import passport from "passport";
+import { fileURLToPath } from "url";
 import compression from "compression";
 import session from "express-session";
 import MongoStore from "connect-mongo";
@@ -12,6 +14,9 @@ import signIn from "./routes/sign-in.js";
 import signUp from "./routes/sign-up.js";
 import signOut from "./routes/sign-out.js";
 import authenticated from "./routes/authenticated.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -39,15 +44,19 @@ app.use("/logout", signOut);
 app.use("/register", signUp);
 app.use("/authenticated", authenticated);
 
-const port = process.env.PORT || 5000;
+const __clientPath = path.join(__dirname, "client", "dist");
+app.use(express.static(__clientPath));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__clientPath, "index.html"));
+});
 
+const port = process.env.PORT || 5000;
 if (!process.env.VERCEL) {
-  app.listen(port, (error) => {
-    if (error) {
-      throw error;
-    }
-    console.log(`Server is listening on port ${port}`);
-  });
+  app.listen(port, (error) =>
+    console.log(`Server is listening on port ${port}`)
+  );
 }
 
-export default app;
+export default function handler(req, res) {
+  return app(req, res);
+}
