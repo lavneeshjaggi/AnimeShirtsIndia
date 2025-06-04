@@ -13,4 +13,10 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    outDir: "dist",
+    target: "esnext",
+    rollupOptions: { output: { format: "es" } },
+  },
+  define: { global: "window", "process.env": {} },
 });

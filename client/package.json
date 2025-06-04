@@ -20,8 +20,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build": "vite build --outDir dist"
   },
   "eslintConfig": {
     "extends": "react-app"
