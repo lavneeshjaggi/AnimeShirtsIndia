@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://LavneeshJaggi:sherlock@cluster0-rzdjg.mongodb.net/yellowRaven?retryWrites=true&w=majority",
-  "secret": "I’ll take a potato chip AND EAT IT!"
+  "secret": "I’ll take a potato chip AND EAT IT!",
+  "mongoURI": "mongodb+srv://LavneeshJaggi:sherlock@yellow-raven.mur0nuu.mongodb.net/?retryWrites=true&w=majority&appName=Yellow-Raven"
 }

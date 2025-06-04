@@ -38,7 +38,7 @@ class LogIn extends React.Component {
 
       const body = JSON.stringify(newUser);
 
-      await config.post("/login", body);
+      await config.post("/api/login", body);
 
       await this.props.navigate("/");
     } catch (error) {

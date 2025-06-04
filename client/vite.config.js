@@ -5,6 +5,12 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react(), svgr()],
   server: {
-    proxy: { "/api": { changeOrigin: true, target: "http://localhost:5000" } },
+    proxy: {
+      "/api": {
+        changeOrigin: true,
+        target: "http://localhost:5000",
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
   },
 });

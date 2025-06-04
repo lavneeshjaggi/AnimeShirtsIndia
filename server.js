@@ -1,15 +1,15 @@
-const express = require("express"),
-  path = require("path"),
-  compression = require("compression"),
-  session = require("express-session"),
-  config = require("config"),
-  passport = require("passport"),
-  localStrategy = require("passport-local");
+const path = require("path");
+const config = require("config");
+const express = require("express");
+const passport = require("passport");
+const compression = require("compression");
+const session = require("express-session");
+const localStrategy = require("passport-local");
+
+const User = require("./models/user");
+const connectDB = require("./config/db");
 
 const app = express();
-
-const connectDB = require("./config/db"),
-  User = require("./models/user");
 
 connectDB();
 
@@ -29,10 +29,10 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use("/authenticated", require("./routes/authenticated"));
 app.use("/login", require("./routes/sign-in"));
 app.use("/logout", require("./routes/sign-out"));
 app.use("/register", require("./routes/sign-up"));
+app.use("/authenticated", require("./routes/authenticated"));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));

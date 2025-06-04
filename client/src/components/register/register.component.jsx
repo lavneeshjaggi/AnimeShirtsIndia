@@ -1,5 +1,5 @@
-import React from "react";
 import axios from "axios";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import FormInput from "../form-input/form-input.component";
@@ -36,14 +36,12 @@ class Register extends React.Component {
       try {
         const config = axios.create({
           baseURL: "/",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
         });
 
         const body = JSON.stringify(newUser);
 
-        await config.post("/register", body);
+        await config.post("/api/register", body);
 
         await this.props.navigate("/");
       } catch (error) {

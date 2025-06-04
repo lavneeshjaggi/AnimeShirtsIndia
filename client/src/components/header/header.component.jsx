@@ -20,16 +20,14 @@ const Header = ({ currentUser, hidden, clearCart }) => {
   const signOut = async (event) => {
     await event.preventDefault();
 
-    const response = await axios.get("/authenticated");
+    const response = await axios.get("/api/authenticated");
 
     const user = response.data.user;
 
     try {
       const config = axios.create({
         baseURL: "/",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
       });
 
       const data = {
@@ -42,7 +40,7 @@ const Header = ({ currentUser, hidden, clearCart }) => {
 
       const body = JSON.stringify(data);
 
-      await config.post("/logout", body);
+      await config.post("/api/logout", body);
 
       await navigate("/signin");
 

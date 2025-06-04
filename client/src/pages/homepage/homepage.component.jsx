@@ -13,7 +13,7 @@ import "./homepage.styles.scss";
 const Homepage = ({ setCurrentUser, clearCart }) => {
   useEffect(() => {
     const isLoggedIn = async () => {
-      const user = await (await axios.get("/authenticated")).data.user;
+      const user = await (await axios.get("/api/authenticated")).data.user;
 
       if (user)
         setCurrentUser({
