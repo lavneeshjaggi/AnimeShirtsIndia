@@ -1,6 +1,13 @@
 {
   "version": 2,
   "outputDirectory": "client/dist",
-  "routes": [{ "src": "/(.*)", "dest": "server.js" }],
-  "builds": [{ "src": "server.js", "use": "@vercel/node" }]
+  "builds": [{ "src": "server.js", "use": "@vercel/node" }],
+  "routes": [
+    { "src": "/login", "dest": "server.js" },
+    { "src": "/logout", "dest": "server.js" },
+    { "src": "/register", "dest": "server.js" },
+    { "src": "/authenticated", "dest": "server.js" },
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
+  ]
 }
