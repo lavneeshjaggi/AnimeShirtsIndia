@@ -9,7 +9,7 @@
     "server": "nodemon server",
     "client": "npm run dev --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "vercel-build": "cd client && npm install && npm install && npm run build"
   },
   "author": "Lavneesh Jaggi and Kira Sama",
   "license": "ISC",
