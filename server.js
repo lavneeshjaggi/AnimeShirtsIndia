@@ -1,9 +1,11 @@
 import "dotenv/config";
-import { join } from "path";
 import express from "express";
 import passport from "passport";
+import { fileURLToPath } from "url";
+import { join, dirname } from "path";
 import compression from "compression";
 import session from "express-session";
+import MongoStore from "connect-mongo";
 import localStrategy from "passport-local";
 
 import User from "./models/user.js";
@@ -14,6 +16,8 @@ import signOut from "./routes/sign-out.js";
 import authenticated from "./routes/authenticated.js";
 
 const app = express();
+const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
 
 connectDB();
 
@@ -26,6 +30,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     secret: process.env.MONGO_SECRET,
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
   })
 );
 
