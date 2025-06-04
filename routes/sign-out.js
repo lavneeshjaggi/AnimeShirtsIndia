@@ -2,7 +2,7 @@ import { Router } from "express";
 
 const router = Router();
 
-router.post("/", function (req, res) {
+router.post("/", function (req, res, next) {
   if (!req.user) {
     res.send({ msg: "no user to logout" });
     return;

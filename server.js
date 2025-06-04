@@ -1,6 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import passport from "passport";
+import compression from "compression";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import localStrategy from "passport-local";
@@ -14,7 +15,6 @@ import authenticated from "./routes/authenticated.js";
 
 const app = express();
 
-import compression from "compression";
 connectDB();
 
 app.use(compression());
@@ -38,14 +38,6 @@ app.use("/login", signIn);
 app.use("/logout", signOut);
 app.use("/register", signUp);
 app.use("/authenticated", authenticated);
-
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static(join(__dirname, "client/dist")));
-
-//   app.get("*", function (req, res) {
-//     res.sendFile(join(__dirname, "client/dist", "index.html"));
-//   });
-// }
 
 const port = process.env.PORT || 5000;
 
