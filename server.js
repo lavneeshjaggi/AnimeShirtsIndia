@@ -1,5 +1,5 @@
+import "dotenv/config";
 import { join } from "path";
-import config from "config";
 import express from "express";
 import passport from "passport";
 import compression from "compression";
@@ -25,7 +25,7 @@ app.use(
   session({
     resave: false,
     saveUninitialized: false,
-    secret: config.get("secret"),
+    secret: process.env.MONGO_SECRET,
   })
 );
 
