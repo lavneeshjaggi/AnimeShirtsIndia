@@ -1,10 +1,6 @@
 {
   "version": 2,
-  "builds": [{ "src": "server.js", "use": "@vercel/node" }],
-  "routes": [
-    { "src": "/(login|logout|register|authenticated)", "dest": "server.js" },
-    { "src": "/favicon.ico", "dest": "/client/dist/favicon.ico" },
-    { "src": "/", "dest": "/client/dist.index.html" },
-    { "src": "/.*", "dest": "server.js" }
-  ]
+  "outputDirectory": "client/dist",
+  "routes": [{ "src": "/(.*)", "dest": "server.js" }],
+  "builds": [{ "src": "server.js", "use": "@vercel/node" }]
 }

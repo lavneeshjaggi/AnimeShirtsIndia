@@ -46,15 +46,17 @@ app.use("/authenticated", authenticated);
 
 const __clientPath = path.join(__dirname, "client", "dist");
 app.use(express.static(__clientPath));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__clientPath, "index.html"));
+app.get("/", (req, res, next) => {
+  if (req.accepts("html")) {
+    res.sendFile(path.join(__clientPath, "index.html"));
+  } else {
+    next();
+  }
 });
 
 const port = process.env.PORT || 5000;
 if (!process.env.VERCEL) {
-  app.listen(port, (error) =>
-    console.log(`Server is listening on port ${port}`)
-  );
+  app.listen(port, () => console.log(`Server is listening on port ${port}`));
 }
 
 export default function handler(req, res) {
