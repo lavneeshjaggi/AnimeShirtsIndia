@@ -1,6 +1,6 @@
-const express = require("express");
+import { Router } from "express";
 
-const router = express.Router();
+const router = Router();
 
 router.post("/", function (req, res) {
   if (req.user) {
@@ -9,4 +9,4 @@ router.post("/", function (req, res) {
   } else res.send({ msg: "no user to logout" });
 });
 
-module.exports = router;
+export default router;

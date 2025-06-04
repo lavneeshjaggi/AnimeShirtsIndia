@@ -1,9 +1,9 @@
-const express = require("express");
-const passport = require("passport");
+import express from "express";
+import passport from "passport";
+
+import User from "../models/user.js";
 
 const router = express.Router();
-
-const User = require("../models/user");
 
 router.post("/", function (req, res) {
   const { name, email, username, password } = req.body;
@@ -27,4 +27,4 @@ router.post("/", function (req, res) {
   );
 });
 
-module.exports = router;
+export default router;

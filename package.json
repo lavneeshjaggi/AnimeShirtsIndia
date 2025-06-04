@@ -1,8 +1,9 @@
 {
-  "name": "yellow-raven",
+  "type": "module",
   "version": "1.0.0",
-  "description": "E-Commerce Website",
   "main": "server.js",
+  "name": "yellow-raven",
+  "description": "E-Commerce Website",
   "scripts": {
     "start": "node server",
     "server": "nodemon server",

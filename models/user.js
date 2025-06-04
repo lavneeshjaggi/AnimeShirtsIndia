@@ -1,7 +1,7 @@
-const mongoose = require("mongoose"),
-  passportLocalMongoose = require("passport-local-mongoose");
+import { Schema, model } from "mongoose";
+import passportLocalMongoose from "passport-local-mongoose";
 
-const UserSchema = new mongoose.Schema({
+const UserSchema = new Schema({
   name: {
     type: String,
   },
@@ -17,7 +17,7 @@ const UserSchema = new mongoose.Schema({
   },
   cart: [
     {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "Collections",
     },
   ],
@@ -29,4 +29,4 @@ const UserSchema = new mongoose.Schema({
 
 UserSchema.plugin(passportLocalMongoose);
 
-module.exports = mongoose.model("User", UserSchema);
+export default model("User", UserSchema);

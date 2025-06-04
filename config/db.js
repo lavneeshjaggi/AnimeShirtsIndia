@@ -1,16 +1,15 @@
-const config = require("config");
-const mongoose = require("mongoose");
+import config from "config";
+import mongoose from "mongoose";
 
 const db = config.get("mongoURI");
 
 const connectDB = async () => {
   try {
-    mongoose.connect(db);
+    await mongoose.connect(db);
   } catch (error) {
     console.log(error.message);
-
     process.exit(1);
   }
 };
 
-module.exports = connectDB;
+export default connectDB;

@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const CollectionSchema = new mongoose.Schema({
+const CollectionSchema = new Schema({
   title: {
     type: String,
   },
@@ -34,7 +34,7 @@ const CollectionSchema = new mongoose.Schema({
       reviews: [
         {
           user: {
-            type: mongoose.Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: "Users",
           },
           content: {
@@ -43,7 +43,7 @@ const CollectionSchema = new mongoose.Schema({
           likes: [
             {
               user: {
-                type: mongoose.Schema.Types.ObjectId,
+                type: Schema.Types.ObjectId,
                 ref: "Users",
               },
             },
@@ -54,4 +54,4 @@ const CollectionSchema = new mongoose.Schema({
   ],
 });
 
-module.exports = mongoose.model("Collection", CollectionSchema);
+export default model("Collection", CollectionSchema);

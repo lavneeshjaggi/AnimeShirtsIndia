@@ -1,49 +1,57 @@
-const path = require("path");
-const config = require("config");
-const express = require("express");
-const passport = require("passport");
-const compression = require("compression");
-const session = require("express-session");
-const localStrategy = require("passport-local");
+import { join } from "path";
+import config from "config";
+import express from "express";
+import passport from "passport";
+import compression from "compression";
+import session from "express-session";
+import localStrategy from "passport-local";
 
-const User = require("./models/user");
-const connectDB = require("./config/db");
+import User from "./models/user.js";
+import connectDB from "./config/db.js";
+import signIn from "./routes/sign-in.js";
+import signUp from "./routes/sign-up.js";
+import signOut from "./routes/sign-out.js";
+import authenticated from "./routes/authenticated.js";
 
 const app = express();
 
 connectDB();
 
-app.use(express.json({ extended: false }));
 app.use(compression());
+app.use(passport.session());
+app.use(passport.initialize());
+app.use(express.json({ extended: false }));
 app.use(
   session({
-    secret: config.get("secret"),
     resave: false,
     saveUninitialized: false,
+    secret: config.get("secret"),
   })
 );
-app.use(passport.initialize());
-app.use(passport.session());
 
-passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+passport.use(new localStrategy(User.authenticate()));
 
-app.use("/login", require("./routes/sign-in"));
-app.use("/logout", require("./routes/sign-out"));
-app.use("/register", require("./routes/sign-up"));
-app.use("/authenticated", require("./routes/authenticated"));
+app.use("/login", signIn);
+app.use("/logout", signOut);
+app.use("/register", signUp);
+app.use("/authenticated", authenticated);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client/build")));
+  app.use(express.static(join(__dirname, "client/build")));
 
   app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "client/build", "index.html"));
+    res.sendFile(join(__dirname, "client/build", "index.html"));
   });
 }
 
 const port = process.env.PORT || 5000;
 
 app.listen(port, (error) => {
-  if (error) throw error;
+  if (error) {
+    throw error;
+  } else {
+    console.log(`Server is listening on port ${port}`);
+  }
 });

@@ -1,10 +1,13 @@
-const express = require("express");
+import { Router } from "express";
 
-const router = express.Router();
+const router = Router();
 
 router.get("/", function (req, res) {
-  if (req.user) res.json({ user: req.user });
-  else res.json({ user: null });
+  if (req.user) {
+    res.json({ user: req.user });
+  } else {
+    res.json({ user: null });
+  }
 });
 
-module.exports = router;
+export default router;

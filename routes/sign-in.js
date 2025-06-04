@@ -1,5 +1,5 @@
-const express = require("express");
-const passport = require("passport");
+import express from "express";
+import passport from "passport";
 
 const router = express.Router();
 
@@ -7,4 +7,4 @@ router.post("/", passport.authenticate("local"), function (req, res) {
   return res.status(200).json({ msg: "Login Complete" });
 });
 
-module.exports = router;
+export default router;
