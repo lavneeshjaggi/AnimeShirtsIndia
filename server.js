@@ -1,9 +1,6 @@
 import "dotenv/config";
 import express from "express";
 import passport from "passport";
-import { fileURLToPath } from "url";
-import { join, dirname } from "path";
-import compression from "compression";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import localStrategy from "passport-local";
@@ -16,15 +13,12 @@ import signOut from "./routes/sign-out.js";
 import authenticated from "./routes/authenticated.js";
 
 const app = express();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
+import compression from "compression";
 connectDB();
 
 app.use(compression());
-app.use(passport.session());
-app.use(passport.initialize());
-app.use(express.json({ extended: false }));
+app.use(express.json());
 app.use(
   session({
     resave: false,
@@ -33,6 +27,8 @@ app.use(
     store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
   })
 );
+app.use(passport.session());
+app.use(passport.initialize());
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -43,20 +39,23 @@ app.use("/logout", signOut);
 app.use("/register", signUp);
 app.use("/authenticated", authenticated);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(join(__dirname, "client/dist")));
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(join(__dirname, "client/dist")));
 
-  app.get("*", function (req, res) {
-    res.sendFile(join(__dirname, "client/dist", "index.html"));
-  });
-}
+//   app.get("*", function (req, res) {
+//     res.sendFile(join(__dirname, "client/dist", "index.html"));
+//   });
+// }
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, (error) => {
-  if (error) {
-    throw error;
-  } else {
+if (!process.env.VERCEL) {
+  app.listen(port, (error) => {
+    if (error) {
+      throw error;
+    }
     console.log(`Server is listening on port ${port}`);
-  }
-});
+  });
+}
+
+export default app;
