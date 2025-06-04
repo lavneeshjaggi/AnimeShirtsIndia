@@ -15,9 +15,10 @@ import signUp from "./routes/sign-up.js";
 import signOut from "./routes/sign-out.js";
 import authenticated from "./routes/authenticated.js";
 
-const app = express();
 const __dirname = dirname(__filename);
 const __filename = fileURLToPath(import.meta.url);
+
+const app = express();
 
 connectDB();
 
