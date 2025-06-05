@@ -39,26 +39,23 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 passport.use(new localStrategy(User.authenticate()));
 
-app.use("/login", signIn);
-app.use("/logout", signOut);
-app.use("/register", signUp);
-app.use("/authenticated", authenticated);
+app.use("/api/login", signIn);
+app.use("/api/logout", signOut);
+app.use("/api/register", signUp);
+app.use("/api/authenticated", authenticated);
 
-const __clientPath = path.join(__dirname, "client", "dist");
-app.use(express.static(__clientPath));
-app.get("/", (req, res, next) => {
-  if (req.accepts("html")) {
-    res.sendFile(path.join(__clientPath, "index.html"));
-  } else {
-    next();
-  }
-});
+if (process.env.NODE_ENV === "production") {
+  const __clientPath = path.join(__dirname, "client", "dist");
+  app.use(express.static(__clientPath));
+  app.get("/", (req, res, next) => {
+    if (req.accepts("html")) {
+      res.sendFile(path.join(__clientPath, "index.html"));
+    } else {
+      next();
+    }
+  });
+}
 
 const port = process.env.PORT || 5000;
-if (!process.env.VERCEL) {
-  app.listen(port, () => console.log(`Server is listening on port ${port}`));
-}
 
-export default function handler(req, res) {
-  return app(req, res);
-}
+app.listen(port, () => console.log(`Server is listening on port ${port}`));
