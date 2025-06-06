@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "main": "server.js",
   "name": "yellow-raven",
+  "author": "Lavneesh Jaggi",
   "description": "E-Commerce Website",
   "scripts": {
     "start": "node server",
     "server": "nodemon server",
-    "client": "npm run dev --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "vercel-build": "cd client && npm install && npm run build"
+    "client:dev": "cd client && npm run dev",
+    "client:prod": "cd client && npm run build && npm run preview",
+    "start:dev": "concurrently \"npm run server\" \"npm run client:dev\"",
+    "start:prod": "concurrently \"npm run server\" \"npm run client:prod\""
   },
-  "author": "Lavneesh Jaggi and Kira Sama",
   "license": "ISC",
   "dependencies": {
     "compression": "^1.8.0",
