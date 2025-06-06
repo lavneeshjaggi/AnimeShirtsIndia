@@ -44,6 +44,11 @@ app.use("/api/logout", signOut);
 app.use("/api/register", signUp);
 app.use("/api/authenticated", authenticated);
 
+app.use(express.static(path.join(__dirname, "client/dist")));
+app.get(/^\/.*/, (req, res) => {
+  res.sendFile(path.join(__dirname, "client/dist", "index.html"));
+});
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server is listening on port ${port}`));

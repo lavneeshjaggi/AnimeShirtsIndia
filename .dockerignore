@@ -1,0 +1,11 @@
+# d:\Lavneesh\Code\AnimeShirtsIndia\.dockerignore
+.git
+.gitignore
+node_modules/
+client/node_modules/
+client/dist/ # Built inside the Docker image
+client/build/ # If applicable, also built inside Docker
+npm-debug.log*
+*.env # If you are passing environment variables at runtime (recommended)
+Dockerfile
+README.md
