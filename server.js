@@ -44,18 +44,6 @@ app.use("/api/logout", signOut);
 app.use("/api/register", signUp);
 app.use("/api/authenticated", authenticated);
 
-if (process.env.NODE_ENV === "production") {
-  const __clientPath = path.join(__dirname, "client", "dist");
-  app.use(express.static(__clientPath));
-  app.get("/", (req, res, next) => {
-    if (req.accepts("html")) {
-      res.sendFile(path.join(__clientPath, "index.html"));
-    } else {
-      next();
-    }
-  });
-}
-
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server is listening on port ${port}`));
